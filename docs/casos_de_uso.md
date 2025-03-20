@@ -68,7 +68,7 @@
 | Descripción  | _Administrador de la aplicción_  |
 | Características  |_Usa la aplicación sin restricciones_ |
 | Relaciones | __  |
-| Referencias | _Crear ejercitos, ver perfiles,, iniciar sesion, registrarse, recuperar contrasenia, premiar ejercitos, gestionar contenido, banear cuentas, recuperar cuentas_ |
+| Referencias | _Crear ejercitos, ver perfiles, iniciar sesion, registrarse, recuperar contrasenia, premiar ejercitos, gestionar contenido, banear cuentas, recuperar cuentas_ |
 |  Notas |  __ |
 | Autor  | _Alejandro Salazar González_ |
 |Fecha | _20/03/2025_ |
@@ -172,17 +172,62 @@
   | Autor  | _Alejandro Salazar González_ |
   |Fecha | _20/03/2025_ |
 
-#### Comentar publicación
+#### Borrar publicacion
 
-|  Caso de Uso CU | Comentar Contenido  |
+|  Caso de Uso CU | Borrar publicacion  |
   |---|---|
   | Fuentes  | _[Documento]()_  |
-  | Actor  |  _Usuario comun, Usuario premium, Administrador_ |
-  | Descripción | _Comenta en una publicación a la aplicación_  |
-  | Flujo básico | _Entra aplicacion, ve el contenido, comenta_ |
-  | Pre-condiciones | _Estar dentro de la aplicación_  |  
+  | Actor  |  _Administrador_ |
+  | Descripción | _Se elimina una publicacion  |
+  | Flujo básico | _Entra aplicacion, se abre el menu de administrador, buscar la publicacion, borrar la publicacion |
+  | Pre-condiciones | _Que la publicacion haya incumplido las normas_  |  
   | Post-condiciones  | __  |  
-  |  Requerimientos | _El usuario debe de tener una cuenta_  |
+  | Requerimientos | __  |
+  |  Notas |  __ |
+  | Autor  | _Alejandro Salazar González_ |
+  |Fecha | _20/03/2025_ |
+
+  #### Recuperar publicacion
+
+|  Caso de Uso CU | Recuperar publicacion  |
+  |---|---|
+  | Fuentes  | _[Documento]()_  |
+  | Actor  |  _Administrador_ |
+  | Descripción | _Se recupera una publicacion eliminada_  |
+  | Flujo básico | _Entra aplicacion, abre el menu de administrador, buscar la publicacion y reactivarla_ |
+  | Pre-condiciones | _Que el usuario haya reclamado la eliminacion de la publicacion  |  
+  | Post-condiciones  | __  |  
+  | Requerimientos | _Que la publicacion haya sido eliminada injustamente_  |
+  |  Notas |  __ |
+  | Autor  | _Alejandro Salazar González_ |
+  |Fecha | _20/03/2025_ |
+
+#### Borrar cuenta
+
+|  Caso de Uso CU | Borrar cuenta  |
+  |---|---|
+  | Fuentes  | _[Documento]()_  |
+  | Actor  |  _Administrador_ |
+  | Descripción | _Se elimina una cuenta_  |
+  | Flujo básico | _Entra aplicacion, se abre el menu de administrador, buscar la cuenta, borrar la cuenta_ |
+  | Pre-condiciones | _Que la cuenta haya incumplido las normas_  |  
+  | Post-condiciones  | __  |  
+  | Requerimientos | __  |
+  |  Notas |  __ |
+  | Autor  | _Alejandro Salazar González_ |
+  |Fecha | _20/03/2025_ |
+
+  #### Recuperar cuenta
+
+|  Caso de Uso CU | Recuperar cuenta  |
+  |---|---|
+  | Fuentes  | _[Documento]()_  |
+  | Actor  |  _Administrador_ |
+  | Descripción | _Se recupera una cuenta eliminada_  |
+  | Flujo básico | _Entra aplicacion, abre el menu de administrador, buscar la cuenta y reactivarla_ |
+  | Pre-condiciones | _Que el usuario haya reclamado la eliminacion de la cuenta_  |  
+  | Post-condiciones  | __  |  
+  | Requerimientos | _Que la cuenta haya sido eliminada injustamente_  |
   |  Notas |  __ |
   | Autor  | _Alejandro Salazar González_ |
   |Fecha | _20/03/2025_ |
