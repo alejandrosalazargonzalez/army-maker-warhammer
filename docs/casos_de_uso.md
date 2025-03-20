@@ -12,9 +12,8 @@
 
 #### Usuario común
 
-* **Subir contenido a el muro de la plataforma**: El usuario sube una publicacion a la plataforma, puede ser texto, foto o video.
 * **Crear ejercito**: El usuario crea un ejercito unidad a unidad.
-* **Reportar contenido**: Avisa a los administradores de que una publicación no podria ser adecuada.
+* **Reportar perfil**: Avisa a los administradores de que una publicación no podria ser adecuada.
 * **Crear Ejercitos**: Crea ejercitos del juego con las miniaturas disponibles.
   
 #### Usuario premium
@@ -35,7 +34,7 @@
 | Descripción  | _Usuario normal de la aplicación_  |
 | Características  |_Usa la aplicación de forma gratuita_ |
 | Relaciones | __  |
-| Referencias | _Crear ejercito, ver Perfiles_ |
+| Referencias | _Crear ejercito, ver perfiles, iniciar sesion, registrarse, recuperar contrasenia_ |
 |  Notas |  __ |
 | Autor  | _Alejandro Salazar González_ |
 |Fecha | _20/03/2025_ |
@@ -52,7 +51,7 @@
 | Descripción  | _Usuario que paga una suscripcion a la aplicación_  |
 | Características  |_Usa la aplicación pagando_ |
 | Relaciones | __  |
-| Referencias | _Crear ejercito, ver Perfiles, premiar ejercitos_ |
+| Referencias | _Crear ejercito, ver perfiles, iniciar sesion, registrarse, recuperar contrasenia, premiar ejercitos_ |
 |  Notas |  __ |
 | Autor  | _Alejandro Salazar González_ |
 |Fecha | _20/03/2025_ |
@@ -69,7 +68,7 @@
 | Descripción  | _Administrador de la aplicción_  |
 | Características  |_Usa la aplicación sin restricciones_ |
 | Relaciones | __  |
-| Referencias | _Crear ejercitos, ver Perfiles, premiar ejercitos, gestionar contenido, banear cuentas_ |
+| Referencias | _Crear ejercitos, ver perfiles,, iniciar sesion, registrarse, recuperar contrasenia, premiar ejercitos, gestionar contenido, banear cuentas, recuperar cuentas_ |
 |  Notas |  __ |
 | Autor  | _Alejandro Salazar González_ |
 |Fecha | _20/03/2025_ |
@@ -83,7 +82,52 @@
 
 ## Casos de uso
 
-#### Subir contenido
+#### Iniciar sesion
+
+|  Caso de Uso CU | Iniciar sesion  |
+  |---|---|
+  | Fuentes  | _[Documento]()_  |
+  | Actor  |  _Usuario comun, Usuario premium, Administrador_ |
+  | Descripción | _Inicia sesion en la aplicacion._  |
+  | Flujo básico | __ |
+  | Pre-condiciones | _Estar dentro de la aplicacion_  |  
+  | Post-condiciones  | __  |  
+  |  Requerimientos | _El usuario debe de tener una cuenta_  |
+  |  Notas |  __ |
+  | Autor  | _Alejandro Salazar González_ |
+  |Fecha | _20/03/2025_ |
+
+#### Recuperar contrasenia
+
+|  Caso de Uso CU | Recuperar Contrasenia  |
+  |---|---|
+  | Fuentes  | _[Documento]()_  |
+  | Actor  |  _Usuario comun, Usuario premium, Administrador_ |
+  | Descripción | _Recupera una contrasenia de una cuenta._  |
+  | Flujo básico | __ |
+  | Pre-condiciones | _Estar dentro de la aplicacion_  |  
+  | Post-condiciones  | __  |  
+  |  Requerimientos | _El usuario debe de tener una cuenta_  |
+  |  Notas |  __ |
+  | Autor  | _Alejandro Salazar González_ |
+  |Fecha | _20/03/2025_ |
+
+  #### Registrarse
+
+|  Caso de Uso CU | Registrarse  |
+  |---|---|
+  | Fuentes  | _[Documento]()_  |
+  | Actor  |  _Usuario comun, Usuario premium, Administrador_ |
+  | Descripción | _Crea una cuenta en la aplicacion._  |
+  | Flujo básico | __ |
+  | Pre-condiciones | _No tener una cuenta_  |  
+  | Post-condiciones  | __  |  
+  |  Requerimientos | _El usuario debe no tener una cuenta_  |
+  |  Notas |  __ |
+  | Autor  | _Alejandro Salazar González_ |
+  |Fecha | _20/03/2025_ |
+
+#### Crear ejercito
 
 |  Caso de Uso CU | Crear ejercito  |
   |---|---|
@@ -144,3 +188,5 @@
   |Fecha | _20/03/2025_ |
 
 ####
+
+![alt](../images/mywarhammer1.0.0.png)
