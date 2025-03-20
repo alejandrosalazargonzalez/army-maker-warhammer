@@ -79,11 +79,9 @@
 | _Nombre_  | _Descripción_  | _Tipo_ |
 | | ||
 
-+
-
 ---
 
-### Casos de uso
+## Casos de uso
 
 #### Subir contenido
 
@@ -106,7 +104,7 @@
   |---|---|
   | Fuentes  | _[Documento]()_  |
   | Actor  |  _Usuario comun, Usuario premium, Administrador_ |
-  | Descripción | _Mira publicaciones en aplicación_  |
+  | Descripción | _Mira perfiles de la aplicación_  |
   | Flujo básico | __ |
   | Pre-condiciones | _Estar dentro de la aplicación_  |  
   | Post-condiciones  | __  |  
