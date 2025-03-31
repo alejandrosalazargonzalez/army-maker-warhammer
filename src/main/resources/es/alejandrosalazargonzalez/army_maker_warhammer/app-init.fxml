@@ -11,67 +11,71 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="500.0" styleClass="background" stylesheets="src/main/resources/es/alejandrosalazargonzalez/army_maker_warhammer/images/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.HelloController">
+<VBox alignment="TOP_CENTER" prefHeight="900.0" prefWidth="514.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.logIn">
     <padding>
         <Insets bottom="20.0" top="20.0" />
     </padding>
-   <ComboBox prefWidth="150.0" promptText="Idioma">
+   <ComboBox prefWidth="117.0" promptText="Idioma" stylesheets="@style.css">
       <VBox.margin>
          <Insets bottom="10.0" />
       </VBox.margin>
    </ComboBox>
 
-    <Label fx:id="iniciarText" prefHeight="18.0" prefWidth="478.0" text="Iniciar">
+    <Label fx:id="iniciarText" prefHeight="18.0" prefWidth="478.0" text="Iniciar" textFill="WHITE">
       <VBox.margin>
          <Insets left="15.0" />
       </VBox.margin></Label>
-   <Line endX="250.0" startX="-250.0">
+   <Line endX="250.0" startX="-250.0" stroke="WHITE" styleClass="line">
       <VBox.margin>
-         <Insets bottom="15.0" top="5.0" />
+         <Insets bottom="15.0" left="15.0" right="5.0" top="5.0" />
       </VBox.margin>
    </Line>
-   <Label fx:id="usuarioText" prefHeight="18.0" prefWidth="476.0" text="Usuario:">
-      <VBox.margin>
-         <Insets left="20.0" />
-      </VBox.margin>
-   </Label>
-   <TextField promptText="Introduce Usuario">
-      <VBox.margin>
-         <Insets bottom="15.0" left="20.0" right="20.0" />
-      </VBox.margin>
-   </TextField>
-   <Label fx:id="contraseniaText" prefHeight="18.0" prefWidth="488.0" text="Contraseña:">
-      <VBox.margin>
-         <Insets left="20.0" />
-      </VBox.margin>
-   </Label>
-   <PasswordField promptText="Introduzca su Contraseña">
-      <VBox.margin>
-         <Insets left="20.0" right="20.0" />
-      </VBox.margin>
-   </PasswordField>
-    <Button alignment="TOP_CENTER" onAction="#onHelloButtonClick" prefHeight="40.0" prefWidth="106.0" text="Iniciar" textAlignment="CENTER">
+   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="497.0" styleClass="backgroundIniciar" stylesheets="@style.css">
+      <children>
+         <Label fx:id="usuarioText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="476.0" text="Usuario:" textFill="WHITE">
+            <VBox.margin>
+               <Insets left="20.0" />
+            </VBox.margin>
+         </Label>
+         <TextField promptText="Introduce Usuario" stylesheets="@style.css">
+            <VBox.margin>
+               <Insets bottom="15.0" left="20.0" right="20.0" />
+            </VBox.margin>
+         </TextField>
+         <Label fx:id="contraseniaText" prefHeight="18.0" prefWidth="488.0" text="Contraseña:" textFill="WHITE">
+            <VBox.margin>
+               <Insets left="20.0" />
+            </VBox.margin>
+         </Label>
+         <PasswordField promptText="Introduzca su Contraseña" stylesheets="@style.css">
+            <VBox.margin>
+               <Insets left="20.0" right="20.0" />
+            </VBox.margin>
+         </PasswordField>
+      </children>
+   </VBox>
+    <Button alignment="TOP_CENTER" onAction="#onHelloButtonClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Iniciar" textAlignment="CENTER">
       <font>
          <Font size="18.0" />
       </font>
       <VBox.margin>
-         <Insets top="400.0" />
+         <Insets top="550.0" />
       </VBox.margin></Button>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste la contraseña?" wrappingWidth="488.8000183105469">
+   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste la contraseña?" wrappingWidth="488.8000183105469">
       <VBox.margin>
          <Insets bottom="5.0" left="15.0" top="10.0" />
       </VBox.margin>
    </Text>
-   <Line endX="250.0" startX="-250.0">
+   <Line endX="250.0" startX="-250.0" stroke="WHITE">
       <VBox.margin>
-         <Insets left="15.0" />
+         <Insets left="15.0" right="5.0" />
       </VBox.margin></Line>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿Nuevo usuario?" wrappingWidth="487.2001037597656">
+   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Nuevo usuario?" wrappingWidth="487.2001037597656">
       <VBox.margin>
          <Insets bottom="10.0" left="15.0" top="5.0" />
       </VBox.margin>
    </Text>
-   <Button alignment="TOP_CENTER" layoutX="112.0" layoutY="360.0" onAction="#onHelloButtonClick" prefHeight="30.0" prefWidth="100.0" text="Crear cuenta" textAlignment="CENTER">
+   <Button alignment="TOP_CENTER" onAction="#onHelloButtonClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Crear cuenta" textAlignment="CENTER">
       <font>
          <Font size="13.0" />
       </font>

@@ -1,0 +1,17 @@
+.background {
+    -fx-background-image: url("images/fondoApp.jpg");
+    -fx-background-position: center;
+    -fx-background-size:cover;
+    -fx-background-repeat:no-repeat;
+}
+
+.backgroundIniciar {
+    -fx-background-color: rgba(0,0,0,0.5);
+    -fx-background-position: center;
+    -fx-background-radius: 15;
+    -fx-background-repeat:no-repeat;
+}
+
+.botones {
+    -fx-border-radius:30;
+}

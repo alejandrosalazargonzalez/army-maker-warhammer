@@ -3,7 +3,7 @@ package es.alejandrosalazargonzalez.army_maker_warhammer.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class logIn {
     
     @FXML
     private Label iniciarText;
