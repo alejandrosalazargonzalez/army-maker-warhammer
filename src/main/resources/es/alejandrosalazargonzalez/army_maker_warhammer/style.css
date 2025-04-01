@@ -13,5 +13,5 @@
 }
 
 .botones {
-    -fx-border-radius:30;
+    -fx-background-color: rgb(206, 94, 20);
 }

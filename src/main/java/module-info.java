@@ -1,9 +1,10 @@
 module es.alejandrosalazargonzalez.army_maker_warhammer{
-    requires javafx.controls;
+    requires transitive javafx.controls;
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
     requires javafx.graphics;
+    requires java.sql;
 
     opens es.alejandrosalazargonzalez.army_maker_warhammer to javafx.fxml;
     exports es.alejandrosalazargonzalez.army_maker_warhammer;
