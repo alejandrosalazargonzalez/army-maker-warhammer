@@ -62,8 +62,29 @@ public class UsuarioServiceModel extends Conexion {
     }
 
     /**
+     * aniade un usuario a la base de datos
+     * @param usuario a agregar
+     * @return true/false
+     */
+    public boolean addUsuario(UsuarioEntity usuario){
+        if (usuario == null) {
+            return false;
+        }
+        String sql = "Insert into usuarios (nombreUsuario,correo,nombre,contrasenia) values ("
+        + usuario.getUsuario() + ", " + usuario.getEmail() + ", " +
+        usuario.getNombre() + ", " + usuario.getContrasenia();
+        try {
+            ejecutarSql(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Ejecuta la sencuencia sql introducida
-     * 
+     *
      * @param sql a ejecutar
      * @return ArrayList<UsuarioEntity>
      * @throws SQLException
@@ -75,10 +96,11 @@ public class UsuarioServiceModel extends Conexion {
             ResultSet resultado = sentencia.executeQuery();
 
             while (resultado.next()) {
+                String usuarioStr = resultado.getString("nombreUsuario");
                 String nombreStr = resultado.getString("nombre");
                 String contraseniaStr = resultado.getString("contrasenia");
                 String emailStr = resultado.getString("email");
-                UsuarioEntity usuarioModel = new UsuarioEntity(emailStr, nombreStr, contraseniaStr);
+                UsuarioEntity usuarioModel = new UsuarioEntity(usuarioStr,emailStr, nombreStr, contraseniaStr);
                 usuarios.add(usuarioModel);
             }
         } catch (Exception e) {

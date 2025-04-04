@@ -9,9 +9,10 @@ import java.util.Objects;
  */
 public class UsuarioEntity {
 
-    String email;
-    String nombre;
-    String contrasenia;
+    private String usuario;
+    private String email;
+    private String nombre;
+    private String contrasenia;
 
     /**
      * Constructor vacio
@@ -22,21 +23,31 @@ public class UsuarioEntity {
     /**
      * Constructor completo
      * 
+     * @param usuario     del usuario
      * @param email       del usuario
      * @param nombre      del usuario
      * @param contrasenia del usuario
      * @throws Exception
      */
-    public UsuarioEntity(String email, String nombre, String contrasenia) throws ExceptionInInitializerError{
+    public UsuarioEntity(String usuario, String email, String nombre, String contrasenia) throws ExceptionInInitializerError{
         if (!email.contains("@") || !email.contains(".") ) {
             throw new ExceptionInInitializerError("El email debe tener un formato correcto");
         }
+        this.usuario = usuario;
         this.email = email;
         this.nombre = nombre;
         this.contrasenia = contrasenia;
     }
 
     //Getters y Setters
+    public String getUsuario(){
+        return this.usuario;
+    }
+
+    public void setUsuario(String usuario){
+        this.usuario = usuario;
+    }
+
     public String getEmail() {
         return this.email;
     }

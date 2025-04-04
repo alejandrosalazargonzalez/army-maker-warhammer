@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="514.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.logIn">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="514.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.registrarController">
     <padding>
         <Insets bottom="20.0" top="20.0" />
     </padding>
@@ -90,6 +90,14 @@
       <VBox.margin>
          <Insets left="15.0" right="5.0" top="50.0" />
       </VBox.margin></Line>
+   <Label fx:id="errorText" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="488.0" textFill="WHITE">
+      <VBox.margin>
+         <Insets top="25.0" />
+      </VBox.margin>
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
     <Button fx:id="buttonAceptarRegistrar" alignment="TOP_CENTER" onAction="#onButtonAceptarRegClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Aceptar" textAlignment="CENTER">
       <font>
          <Font size="18.0" />
