@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" prefHeight="900.0" prefWidth="514.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.logIn">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="514.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.logIn">
     <padding>
         <Insets bottom="20.0" top="20.0" />
     </padding>
-   <ComboBox prefWidth="117.0" promptText="Idioma" stylesheets="@style.css">
+   <ComboBox fx:id="idiomaComboBox" onAction="#comboBoxCambiarIdioma" prefWidth="117.0" promptText="Idioma" styleClass="botones" stylesheets="@style.css">
       <VBox.margin>
          <Insets bottom="10.0" />
       </VBox.margin>
@@ -37,7 +37,7 @@
                <Insets left="20.0" />
             </VBox.margin>
          </Label>
-         <TextField promptText="Introduce Usuario" stylesheets="@style.css">
+         <TextField fx:id="usuarioTextField" promptText="Introduce Usuario" stylesheets="@style.css">
             <VBox.margin>
                <Insets bottom="15.0" left="20.0" right="20.0" />
             </VBox.margin>
@@ -47,21 +47,21 @@
                <Insets left="20.0" />
             </VBox.margin>
          </Label>
-         <PasswordField promptText="Introduzca su Contraseña" stylesheets="@style.css">
+         <PasswordField fx:id="contraseniaTextField" promptText="Introduzca su Contraseña" stylesheets="@style.css">
             <VBox.margin>
                <Insets left="20.0" right="20.0" />
             </VBox.margin>
          </PasswordField>
       </children>
    </VBox>
-    <Button alignment="TOP_CENTER" onAction="#onHelloButtonClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Iniciar" textAlignment="CENTER">
+    <Button fx:id="iniciarButton" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ButtonToPostsOnClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Iniciar" textAlignment="CENTER">
       <font>
          <Font size="18.0" />
       </font>
       <VBox.margin>
          <Insets top="550.0" />
       </VBox.margin></Button>
-   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste la contraseña?" wrappingWidth="488.8000183105469">
+   <Text fx:id="olvidasteText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste la contraseña?" wrappingWidth="488.8000183105469">
       <VBox.margin>
          <Insets bottom="5.0" left="15.0" top="10.0" />
       </VBox.margin>
@@ -70,12 +70,12 @@
       <VBox.margin>
          <Insets left="15.0" right="5.0" />
       </VBox.margin></Line>
-   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Nuevo usuario?" wrappingWidth="487.2001037597656">
+   <Text fx:id="nuevoUsuarioText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Nuevo usuario?" wrappingWidth="487.2001037597656">
       <VBox.margin>
          <Insets bottom="10.0" left="15.0" top="5.0" />
       </VBox.margin>
    </Text>
-   <Button alignment="TOP_CENTER" onAction="#onHelloButtonClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Crear cuenta" textAlignment="CENTER">
+   <Button fx:id="crearCuentaButton" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#logInToRegistrarOnClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Crear cuenta" textAlignment="CENTER">
       <font>
          <Font size="13.0" />
       </font>
