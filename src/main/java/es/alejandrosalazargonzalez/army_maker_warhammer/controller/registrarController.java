@@ -27,8 +27,8 @@ public class registrarController extends AbstractController {
     
     @FXML private TextField usuarioTextField;
     @FXML private TextField nombreTextField;
-    @FXML private TextField contraseniaTextField;
-    @FXML private TextField contraseniaTextField2;
+    @FXML private TextField contraseniaTextfield;
+    @FXML private TextField contraseniaTextfield2;
     @FXML private TextField correoTextField;
     @FXML private TextField correoTextField2;
     @FXML private Label errorText;
@@ -37,16 +37,39 @@ public class registrarController extends AbstractController {
 
     @FXML
     private void onButtonAceptarRegClick(){
-        if (usuarioTextField == null || usuarioTextField.getText().isEmpty()
-        || nombreTextField == null || nombreTextField.getText().isEmpty()
-        || contraseniaTextField == null || contraseniaTextField.getText().isEmpty()
-        || contraseniaTextField2 == null || contraseniaTextField2.getText().isEmpty()
-        || correoTextField == null || correoTextField.getText().isEmpty()
-        || correoTextField2 == null || correoTextField2.getText().isEmpty()) {
-            errorText.setText("ninguno de los valores puede estar vacio");
+        if(usuarioTextField == null || usuarioTextField.getText().isEmpty()){
+            errorText.setText("Usuario no puede estar vacio");
             return;
         }
-        UsuarioEntity nuevoUsuario = new UsuarioEntity(usuarioTextField.getText(), correoTextField.getText(), nombreTextField.getText(),contraseniaTextField.getText());
+        if(nombreTextField == null || nombreTextField.getText().isEmpty()){
+            errorText.setText("Nombre no puede estar vacio");
+            return;
+        }
+        if(contraseniaTextfield == null || contraseniaTextfield.getText().isEmpty()){
+            errorText.setText("Contrasenia no puede estar vacio");
+            return;
+        }
+        if(contraseniaTextfield2 == null || contraseniaTextfield2.getText().isEmpty()){
+            errorText.setText("Repetir contrasenia no puede estar vacio");
+            return;
+        }
+        if (!contraseniaTextfield.getText().equals(contraseniaTextfield2.getText()) ) {
+            errorText.setText("La contrasenia repetida debe ser igual");
+            return;
+        }
+        if(correoTextField == null || correoTextField.getText().isEmpty()){
+            errorText.setText("El correo no puede estar vacio");
+            return;
+        }
+        if(correoTextField2 == null || correoTextField2.getText().isEmpty()) {
+            errorText.setText("Correo repetir de los valores puede estar vacio");
+            return;
+        }
+        if (!correoTextField.getText().equals(correoTextField2.getText()) ) {
+            errorText.setText("Los correos deben ser iguales");
+            return;
+        }
+        UsuarioEntity nuevoUsuario = new UsuarioEntity(usuarioTextField.getText(), correoTextField.getText(), nombreTextField.getText(),contraseniaTextfield.getText());
         ArrayList<UsuarioEntity> usuarioEntityList;
         try {
             usuarioEntityList = getUsuarioServiceModel().obtenerUsarios();

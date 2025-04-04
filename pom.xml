@@ -17,10 +17,11 @@
         <javafx-maven-plugin.version>0.0.8</javafx-maven-plugin.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <controlsfx.version>11.2.0</controlsfx.version>
+        <sqlite-jdbc.version>3.45.2.0</sqlite-jdbc.version>
     </properties>
 
     <dependencies>
-        <!-- Dependencias de JavaFX -->
+            <!-- Dependencias de JavaFX -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -50,6 +51,12 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>${sqlite-jdbc.version}</version>
         </dependency>
     </dependencies>
 

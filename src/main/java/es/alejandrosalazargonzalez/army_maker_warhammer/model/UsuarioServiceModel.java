@@ -70,9 +70,9 @@ public class UsuarioServiceModel extends Conexion {
         if (usuario == null) {
             return false;
         }
-        String sql = "Insert into usuarios (nombreUsuario,correo,nombre,contrasenia) values ("
-        + usuario.getUsuario() + ", " + usuario.getEmail() + ", " +
-        usuario.getNombre() + ", " + usuario.getContrasenia();
+        String sql = "Insert into usuarios (nombreUsuario,correo,nombre,contrasenia) values ('"
+        + usuario.getUsuario() + "', '" + usuario.getEmail() + "',' " +
+        usuario.getNombre() + "', '" + usuario.getContrasenia() + "'";
         try {
             ejecutarSql(sql);
         } catch (Exception e) {
