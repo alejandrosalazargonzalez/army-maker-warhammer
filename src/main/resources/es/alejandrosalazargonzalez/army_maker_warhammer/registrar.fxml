@@ -105,7 +105,7 @@
       <VBox.margin>
          <Insets top="150.0" />
       </VBox.margin></Button>
-   <Button fx:id="buttonAceptarRegistrar1" alignment="TOP_CENTER" layoutX="209.0" layoutY="743.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onButtonRegitrarToLogInClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Aceptar" textAlignment="CENTER">
+   <Button fx:id="buttonAtras" alignment="TOP_CENTER" layoutX="209.0" layoutY="743.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarToLoginOnClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Atras" textAlignment="CENTER">
       <font>
          <Font size="18.0" />
       </font>
