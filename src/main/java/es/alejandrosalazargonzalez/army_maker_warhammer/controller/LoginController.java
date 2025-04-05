@@ -3,6 +3,9 @@ package es.alejandrosalazargonzalez.army_maker_warhammer.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.PrincipalApplication;
 import es.alejandrosalazargonzalez.army_maker_warhammer.config.ConfigManager;
@@ -33,6 +36,11 @@ public class LoginController extends AbstractController {
     @FXML private Button iniciarButton;
     @FXML private Button crearCuentaButton;
     @FXML private ComboBox<String> idiomaComboBox;
+
+    @FXML void initialize(){
+        List<String> idiomas = new ArrayList<>(Arrays.asList("es","en"));
+        idiomaComboBox.getItems().addAll(idiomas);
+    }
 
     /**
      * va a la pantalla de posts despues de comprobar que todo es correcto

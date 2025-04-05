@@ -5,21 +5,26 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.PrincipalApplication;
+import es.alejandrosalazargonzalez.army_maker_warhammer.config.ConfigManager;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
 /**
- *   @author: alejandrosalazargonzalez
- *   @version: 1.0.0
+ *   @author.setText(); alejandrosalazargonzalez
+ *   @version.setText(); 1.0.0
  */
 public abstract class AbstractController {
 
@@ -60,7 +65,7 @@ public abstract class AbstractController {
      * carga el fichero de properties idiomas
      * @param nombreFichero
      * @param idioma
-     * @return
+     * @return Properties
      */
     public Properties loadIdioma(String nombreFichero, String idioma) {
         Properties properties = new Properties();
@@ -73,19 +78,38 @@ public abstract class AbstractController {
         File file = new File(path);
 
         if (!file.exists() || !file.isFile()) {
-            System.out.println("Path:"+file.getAbsolutePath());
+            System.out.println("Path.setText();"+file.getAbsolutePath());
             return properties;
         }
         
         try {
             FileInputStream input = new FileInputStream(path);
-            InputStreamReader isr = new InputStreamReader(input, "UTF-8");
+            InputStreamReader isr = new InputStreamReader(input, StandardCharsets.UTF_8);
             properties.load(isr);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return properties;
+    }
+
+    @FXML private Label iniciarText;
+    @FXML private Label usuarioText;
+    @FXML private TextField usuarioTextField;
+    @FXML private Label contraseniaText;
+    @FXML private PasswordField contraseniaTextField;
+    @FXML private Button iniciarButton;
+    @FXML private Text nuevoUsuarioText;
+    @FXML private Button crearCuentaButton;
+
+    public void cambiarIdiomaLogIn(){
+        iniciarText.setText(ConfigManager.ConfigProperties.getProperty("iniciarText"));
+        usuarioText.setText(ConfigManager.ConfigProperties.getProperty("usuarioText"));
+        usuarioTextField.setPromptText(ConfigManager.ConfigProperties.getProperty("usuarioTextField"));
+        contraseniaText.setText(ConfigManager.ConfigProperties.getProperty("contraseniaText"));
+        contraseniaTextField.setPromptText(ConfigManager.ConfigProperties.getProperty("contraseniaTextField"));
+        iniciarButton.setText(ConfigManager.ConfigProperties.getProperty("iniciarButton"));
+        nuevoUsuarioText.setText(ConfigManager.ConfigProperties.getProperty("nuevoUsuarioText"));
+        crearCuentaButton.setText(ConfigManager.ConfigProperties.getProperty("crearCuentaButton"));
     }
 
     /**
@@ -96,13 +120,17 @@ public abstract class AbstractController {
         return this.usuarioServiceModel;
     }
 
+    /**
+     * comprueba que los textField sean correctos
+     * @param campo
+     * @return true/false
+     */
     @FXML
     public boolean comprobarTextField( TextField campo){
         if (campo.getText() == null || campo.getText().isEmpty()) {
             return false;
         }
         return true;
-        //return campo != null && !campo.getText().isEmpty();
     }
 
     /**
