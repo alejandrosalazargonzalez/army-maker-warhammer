@@ -48,6 +48,10 @@ public class RegistrarController extends AbstractController {
             errorText.setText("Ya hay una cuenta registrada con ese correo");
             return;
         }
+        if (getUsuarioServiceModel().obtenerUsuarioPorUsuario(usuarioTextField.getText()) != null) {
+            errorText.setText("Ya hay una cuenta registrada con ese usuario");
+            return;
+        }
             getUsuarioServiceModel().addUsuario(nuevoUsuario);
         } catch (SQLException e) {
             e.printStackTrace();

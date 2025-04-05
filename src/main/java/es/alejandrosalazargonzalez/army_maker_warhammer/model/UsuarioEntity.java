@@ -22,7 +22,7 @@ public class UsuarioEntity {
 
     /**
      * Constructor completo
-     * 
+     *
      * @param usuario     del usuario
      * @param email       del usuario
      * @param nombre      del usuario
@@ -53,7 +53,7 @@ public class UsuarioEntity {
     }
 
     public void setEmail(String email) throws ExceptionInInitializerError {
-        if (!email.contains("@") || !email.contains(".") ) {
+        if (!email.contains("@") || !email.contains(".com") ) {
             throw new ExceptionInInitializerError("El email debe tener un formato correcto");
         }
         this.email = email;
@@ -93,10 +93,10 @@ public class UsuarioEntity {
 
     @Override
     public String toString() {
-        return "{" +
-                " email='" + getEmail() + "'" +
-                ", nombre='" + getNombre() + "'" +
-                ", contrasenia='" + getContrasenia() + "'" +
+        return "{" + "usuario" + getUsuario() +
+                ", email=" + getEmail() +
+                ", nombre=" + getNombre() +
+                ", contrasenia=" + getContrasenia() +
                 "}";
     }
 

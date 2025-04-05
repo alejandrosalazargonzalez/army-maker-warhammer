@@ -32,9 +32,19 @@ public class UsuarioServiceModel extends Conexion {
     }
 
     /**
+     * Saca todos los usuarios
+     * @return ArrayList<UsuarioEntity>
+     * @throws SQLException
+     */
+    public ArrayList<UsuarioEntity> obtenerUsarios() throws SQLException {
+        String sql = "SELECT * FROM Usuario";
+        return leerSql(sql);
+    }
+
+    /**
      * Obtiene todos los usuarios por su email
-     * @param email
-     * @return
+     * @param email del usuario
+     * @return UsuarioEntity
      */
     public UsuarioEntity obtenerUsuarioPorEmail(String email) {
         try {
@@ -52,13 +62,23 @@ public class UsuarioServiceModel extends Conexion {
     }
 
     /**
-     * Saca todos los usuarios
-     * @return
-     * @throws SQLException
+     * Obtiene todos los usuarios por su usuario
+     * @param usuario a buscar
+     * @return UsuarioEntity
      */
-    public ArrayList<UsuarioEntity> obtenerUsarios() throws SQLException {
-        String sql = "SELECT * FROM Usuario";
-        return leerSql(sql);
+    public UsuarioEntity obtenerUsuarioPorUsuario(String usuario) {
+        try {
+            String sql = "SELECT * FROM Usuario " + "where email='"+usuario+"'";
+        ArrayList<UsuarioEntity> usuarios = leerSql(sql);
+        if (usuarios.isEmpty()) {
+            return null;
+        }
+        return usuarios.get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        
     }
 
     /**
