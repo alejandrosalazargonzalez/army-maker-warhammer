@@ -15,7 +15,7 @@ import es.alejandrosalazargonzalez.army_maker_warhammer.model.abstractas.Conexio
  */
 public class UsuarioServiceModel extends Conexion {
 
-    /** 
+    /**
      * constructor vacio
      */
     public UsuarioServiceModel() {
@@ -23,7 +23,7 @@ public class UsuarioServiceModel extends Conexion {
 
     /**
      * Constructor completo con la ruta de la base de datos
-     * 
+     *
      * @param unaRutaArchivoBD
      * @throws SQLException
      */
@@ -68,7 +68,7 @@ public class UsuarioServiceModel extends Conexion {
      */
     public UsuarioEntity obtenerUsuarioPorUsuario(String usuario) {
         try {
-            String sql = "SELECT * FROM Usuario " + "where email='"+usuario+"'";
+            String sql = "SELECT * FROM Usuario " + "where nombreUsuario='"+usuario+"'";
         ArrayList<UsuarioEntity> usuarios = leerSql(sql);
         if (usuarios.isEmpty()) {
             return null;
@@ -85,7 +85,7 @@ public class UsuarioServiceModel extends Conexion {
      * aniade un usuario a la base de datos
      * @param usuario a agregar
      * @return true/false
-     * @throws SQLException 
+     * @throws SQLException
      */
     public boolean addUsuario(UsuarioEntity usuario) throws SQLException{
         if (usuario == null) {

@@ -101,20 +101,12 @@ public class RegistrarController extends AbstractController {
         return true;
     }
 
+    /**
+     * vuelve a log in
+     */
     @FXML
     private void registrarToLoginOnClick(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("app-init.fxml"));
-            Stage stage = (Stage) buttonAtras.getScene().getWindow();
-            Scene scene;
-            scene = new Scene(fxmlLoader.load(), 510, 900);
-            stage.setResizable(false);
-            stage.setTitle("Pantalla Princial");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        cambiarPantalla(buttonAtras, "app-init");
     }
 
 }

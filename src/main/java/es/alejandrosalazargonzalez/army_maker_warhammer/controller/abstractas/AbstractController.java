@@ -3,12 +3,18 @@ package es.alejandrosalazargonzalez.army_maker_warhammer.controller.abstractas;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
+import es.alejandrosalazargonzalez.army_maker_warhammer.PrincipalApplication;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 /**
@@ -97,6 +103,27 @@ public abstract class AbstractController {
         }
         return true;
         //return campo != null && !campo.getText().isEmpty();
+    }
+
+    /**
+     * cambia a la pantalla indicada usando el boton que se le pasa como referencia
+     * @param botton
+     * @param pantalla
+     */
+    @FXML
+    public void cambiarPantalla( Button botton, String pantalla){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(pantalla+".fxml"));
+            Stage stage = (Stage) botton.getScene().getWindow();
+            Scene scene;
+            scene = new Scene(fxmlLoader.load(), 510, 900);
+            stage.setResizable(false);
+            stage.setTitle("Pantalla Princial");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
