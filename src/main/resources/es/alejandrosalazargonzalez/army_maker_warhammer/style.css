@@ -23,6 +23,7 @@
 .profileImage{
 -fx-background-image: url("images/profile-img.jpg");-fx-background-repeat: no-repeat;
 -fx-background-position: center;
+-fx-background-size:cover;
 -fx-background-color: transparent;
 -fx-padding: 10px;
 }

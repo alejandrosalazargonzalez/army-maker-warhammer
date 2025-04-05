@@ -16,12 +16,7 @@ public class ConfigManager {
     public static class ConfigProperties {
 
         static String path;
-
         private static final Properties properties = new Properties();
-
-        static {
-            
-        }
 
         /**
          * Metodo estatico para obtener una propiedad
@@ -29,7 +24,7 @@ public class ConfigManager {
         public static String getProperty(String key) {
             return properties.getProperty(key);
         }
-
+//pone que lo actualizaste hace 2 semanas
         public static void setPath(String rutaPath) {
             System.out.println("Dentro del setPath");
             File file = new File(rutaPath);
@@ -40,7 +35,6 @@ public class ConfigManager {
             path = rutaPath;
             try {
                 System.out.println("Dentro del ConfigProperties");
-
                 FileInputStream input = new FileInputStream(path);
                 InputStreamReader isr = new InputStreamReader(input, "UTF-8");
                 properties.load(isr);

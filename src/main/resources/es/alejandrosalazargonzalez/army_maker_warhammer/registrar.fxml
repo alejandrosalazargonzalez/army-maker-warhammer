@@ -8,78 +8,109 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="514.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.RegistrarController">
-    <padding>
-        <Insets bottom="20.0" top="20.0" />
-    </padding>
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+   minWidth="-Infinity" prefHeight="900.0" prefWidth="514.0" styleClass="background"
+   stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.RegistrarController">
+   <padding>
+      <Insets bottom="20.0" top="20.0" />
+   </padding>
 
-    <Label fx:id="registrarText" prefHeight="18.0" prefWidth="478.0" text="Registrar" textFill="WHITE">
+   <Label fx:id="registrarText" prefHeight="18.0" prefWidth="478.0" text="Registrar"
+      textFill="WHITE">
       <VBox.margin>
          <Insets left="15.0" />
-      </VBox.margin></Label>
+      </VBox.margin>
+   </Label>
    <Line endX="250.0" startX="-250.0" stroke="WHITE" styleClass="line">
       <VBox.margin>
          <Insets bottom="15.0" left="15.0" right="5.0" top="5.0" />
       </VBox.margin>
    </Line>
-   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="497.0" styleClass="backgroundIniciar" stylesheets="@style.css">
+   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="389.0" prefWidth="497.0" styleClass="backgroundIniciar" stylesheets="@style.css">
       <children>
-         <Label fx:id="usuarioText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="476.0" text="Usuario:" textFill="WHITE">
+         <Label fx:id="usuarioText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="18.0" prefWidth="476.0" text="Usuario:"
+            textFill="WHITE">
             <VBox.margin>
                <Insets left="20.0" top="20.0" />
             </VBox.margin>
          </Label>
-         <TextField fx:id="usuarioTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="450.0" promptText="Introduce Usuario" stylesheets="@style.css">
+         <TextField fx:id="usuarioTextField" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="450.0"
+            promptText="Introduce Usuario" stylesheets="@style.css">
             <VBox.margin>
                <Insets left="20.0" right="20.0" />
             </VBox.margin>
          </TextField>
-         <Label fx:id="nombreText" layoutX="30.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="476.0" text="Nombre:" textFill="WHITE">
+         <Label fx:id="nombreText" layoutX="30.0" layoutY="10.0" maxHeight="-Infinity"
+            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0"
+            prefWidth="476.0" text="Nombre:" textFill="WHITE">
             <VBox.margin>
                <Insets left="20.0" top="20.0" />
             </VBox.margin>
          </Label>
-         <TextField fx:id="nombreTextField" layoutX="30.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="450.0" promptText="Introduce un Nombre" stylesheets="@style.css">
+         <TextField fx:id="nombreTextField" layoutX="30.0" layoutY="28.0" maxHeight="-Infinity"
+            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0"
+            prefWidth="450.0" promptText="Introduce un Nombre" stylesheets="@style.css">
             <VBox.margin>
                <Insets left="20.0" right="20.0" />
             </VBox.margin>
          </TextField>
-         <Label fx:id="contraseniaText" prefHeight="18.0" prefWidth="488.0" text="Contraseña:" textFill="WHITE">
+         <Label fx:id="contraseniaText" prefHeight="18.0" prefWidth="488.0" text="Contraseña:"
+            textFill="WHITE">
             <VBox.margin>
                <Insets left="20.0" top="20.0" />
             </VBox.margin>
          </Label>
-         <TextField fx:id="contraseniaTextfield" layoutX="30.0" layoutY="234.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="450.0" promptText="Introduca su contraseña" stylesheets="@style.css">
+         <TextField fx:id="contraseniaTextfield" layoutX="30.0" layoutY="234.0"
+            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="24.0" prefWidth="450.0" promptText="Introduca su contraseña"
+            stylesheets="@style.css">
             <VBox.margin>
                <Insets left="20.0" />
             </VBox.margin>
          </TextField>
-         <Label fx:id="contraseniaText2" layoutX="30.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="476.0" text="Repita la contraseña:" textFill="WHITE">
+         <Label fx:id="contraseniaText2" layoutX="30.0" layoutY="10.0" maxHeight="-Infinity"
+            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0"
+            prefWidth="476.0" text="Repita la contraseña:" textFill="WHITE">
             <VBox.margin>
                <Insets left="20.0" top="20.0" />
             </VBox.margin>
          </Label>
-         <TextField fx:id="contraseniaTextfield2" layoutX="30.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="450.0" promptText="Introduca su contraseña de nuevo" stylesheets="@style.css">
+         <TextField fx:id="contraseniaTextfield2" layoutX="30.0" layoutY="28.0"
+            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="24.0" prefWidth="450.0" promptText="Introduca su contraseña de nuevo"
+            stylesheets="@style.css">
             <VBox.margin>
                <Insets left="20.0" />
             </VBox.margin>
          </TextField>
-         <Label fx:id="correoText" layoutX="30.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="476.0" text="Correo electronico:" textFill="WHITE">
+         <Label fx:id="correoText" layoutX="30.0" layoutY="67.0" maxHeight="-Infinity"
+            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0"
+            prefWidth="476.0" text="Correo electronico:" textFill="WHITE">
             <VBox.margin>
                <Insets left="20.0" top="20.0" />
             </VBox.margin>
          </Label>
-         <TextField fx:id="correoTextField" layoutX="30.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="450.0" promptText="Introduce su correo Electrónico" stylesheets="@style.css">
+         <TextField fx:id="correoTextField" layoutX="30.0" layoutY="85.0" maxHeight="-Infinity"
+            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0"
+            prefWidth="450.0" promptText="Introduce su correo Electrónico" stylesheets="@style.css">
             <VBox.margin>
                <Insets left="20.0" />
             </VBox.margin>
          </TextField>
-         <Label fx:id="correoText2" layoutX="30.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="476.0" text="Repita su correo electronico:" textFill="WHITE">
+         <Label fx:id="correoText2" layoutX="30.0" layoutY="124.0" maxHeight="-Infinity"
+            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0"
+            prefWidth="476.0" text="Repita su correo electronico:" textFill="WHITE">
             <VBox.margin>
                <Insets left="20.0" top="20.0" />
             </VBox.margin>
          </Label>
-         <TextField fx:id="correoTextField2" layoutX="10.0" layoutY="226.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="450.0" promptText="Repita su correo Electrónico" stylesheets="@style.css">
+         <TextField fx:id="correoTextField2" layoutX="10.0" layoutY="226.0" maxHeight="-Infinity"
+            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0"
+            prefWidth="450.0" promptText="Repita su correo Electrónico" stylesheets="@style.css">
             <VBox.margin>
                <Insets left="20.0" />
             </VBox.margin>
@@ -89,8 +120,10 @@
    <Line endX="250.0" startX="-250.0" stroke="WHITE">
       <VBox.margin>
          <Insets left="15.0" right="5.0" top="50.0" />
-      </VBox.margin></Line>
-   <Label fx:id="errorText" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="488.0" textFill="WHITE">
+      </VBox.margin>
+   </Line>
+   <Label fx:id="errorText" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0"
+      prefWidth="488.0" textFill="WHITE">
       <VBox.margin>
          <Insets top="25.0" />
       </VBox.margin>
@@ -98,14 +131,20 @@
          <Font size="20.0" />
       </font>
    </Label>
-    <Button fx:id="buttonAceptarRegistrar" alignment="TOP_CENTER" onAction="#onButtonAceptarRegClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Aceptar" textAlignment="CENTER">
+   <Button fx:id="buttonAceptarRegistrar" alignment="TOP_CENTER" onAction="#onButtonAceptarRegClick"
+      prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css"
+      text="Aceptar" textAlignment="CENTER">
       <font>
          <Font size="18.0" />
       </font>
       <VBox.margin>
          <Insets top="150.0" />
-      </VBox.margin></Button>
-   <Button fx:id="buttonAtras" alignment="TOP_CENTER" layoutX="209.0" layoutY="743.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarToLoginOnClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Atras" textAlignment="CENTER">
+      </VBox.margin>
+   </Button>
+   <Button fx:id="buttonAtras" alignment="TOP_CENTER" layoutX="209.0" layoutY="743.0"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      onAction="#registrarToLoginOnClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones"
+      stylesheets="@style.css" text="Atras" textAlignment="CENTER">
       <font>
          <Font size="18.0" />
       </font>

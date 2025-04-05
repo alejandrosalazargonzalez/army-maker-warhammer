@@ -23,11 +23,15 @@ import javafx.stage.Stage;
 
 
 /**
- *   @author.setText(); alejandrosalazargonzalez
- *   @version.setText(); 1.0.0
+ *   @author alejandrosalazargonzalez
+ *   @version 1.0.0
  */
 public abstract class AbstractController {
 
+    private final String pathFichero = "src/main/resources/";
+    private final String ficheroStr = "idioma-";
+    private static String idiomaActual = "es";
+    
     static final String PATH_DB ="src/main/resources/es/alejandrosalazargonzalez/army_maker_warhammer/usuarios.db";
 
     private UsuarioServiceModel usuarioServiceModel;
@@ -61,46 +65,41 @@ public abstract class AbstractController {
         return propertiesIdioma;
     }
 
-    /**
-     * carga el fichero de properties idiomas
-     * @param nombreFichero
-     * @param idioma
-     * @return Properties
-     */
-    public Properties loadIdioma(String nombreFichero, String idioma) {
-        Properties properties = new Properties();
-        
-        if (nombreFichero == null || idioma == null) {
-            return properties;
-        }
-        
-        String path = "src/main/resources/" + nombreFichero+"-"+idioma+".properties";
-        File file = new File(path);
 
-        if (!file.exists() || !file.isFile()) {
-            System.out.println("Path.setText();"+file.getAbsolutePath());
-            return properties;
-        }
-        
-        try {
-            FileInputStream input = new FileInputStream(path);
-            InputStreamReader isr = new InputStreamReader(input, StandardCharsets.UTF_8);
-            properties.load(isr);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return properties;
+    public static String getIdioma() {
+        return idiomaActual;
     }
 
-    @FXML private Label iniciarText;
-    @FXML private Label usuarioText;
-    @FXML private TextField usuarioTextField;
-    @FXML private Label contraseniaText;
-    @FXML private PasswordField contraseniaTextField;
-    @FXML private Button iniciarButton;
-    @FXML private Text nuevoUsuarioText;
-    @FXML private Button crearCuentaButton;
+    public static void setIdioma(String idioma){
+        idiomaActual = idioma;
+    }
 
+    /**
+     * Funcion para cargar el idioma
+     * @param idioma a cargar
+     */
+    protected void cargarIdiomaActual() {
+        if (idiomaActual == null || idiomaActual.isEmpty()) {
+            idiomaActual = "es";
+        }
+        
+        String path = pathFichero+ficheroStr + idiomaActual + ".properties";
+        ConfigManager.ConfigProperties.setPath(path);
+    }
+
+    @FXML public Label iniciarText;
+    @FXML public Label usuarioText;
+    @FXML public TextField usuarioTextField;
+    @FXML public Label contraseniaText;
+    @FXML public PasswordField contraseniaTextField;
+    @FXML public Button iniciarButton;
+    @FXML public Text olvidasteText;
+    @FXML public Text nuevoUsuarioText;
+    @FXML public Button crearCuentaButton;
+
+    /**
+     * cambiar idioma de la pantalla log in
+     */
     public void cambiarIdiomaLogIn(){
         iniciarText.setText(ConfigManager.ConfigProperties.getProperty("iniciarText"));
         usuarioText.setText(ConfigManager.ConfigProperties.getProperty("usuarioText"));
@@ -108,8 +107,41 @@ public abstract class AbstractController {
         contraseniaText.setText(ConfigManager.ConfigProperties.getProperty("contraseniaText"));
         contraseniaTextField.setPromptText(ConfigManager.ConfigProperties.getProperty("contraseniaTextField"));
         iniciarButton.setText(ConfigManager.ConfigProperties.getProperty("iniciarButton"));
+        olvidasteText.setText(ConfigManager.ConfigProperties.getProperty("olvidasteText"));
         nuevoUsuarioText.setText(ConfigManager.ConfigProperties.getProperty("nuevoUsuarioText"));
         crearCuentaButton.setText(ConfigManager.ConfigProperties.getProperty("crearCuentaButton"));
+    }
+
+    @FXML public Label registrarText;
+    @FXML public Label nombreText;
+    @FXML public TextField nombreTextField;
+    @FXML public Label contraseniaText2;
+    @FXML public TextField contraseniaTextfield2;
+    @FXML public Label correoText;
+    @FXML public TextField correoTextField;
+    @FXML public Label correoText2;
+    @FXML public TextField correoTextField2;
+    @FXML public Button buttonAceptarRegistrar;
+    @FXML public Button buttonAtras;
+
+    /**
+     * cambiar idioma Registrar
+     */
+    public void cambiarIdiomaRegistrar(){
+        registrarText.setText(ConfigManager.ConfigProperties.getProperty("registrarText"));
+        usuarioText.setText(ConfigManager.ConfigProperties.getProperty("usuarioText"));
+        usuarioTextField.setPromptText(ConfigManager.ConfigProperties.getProperty("usuarioTextField"));
+        nombreText.setText(ConfigManager.ConfigProperties.getProperty("nombreText"));
+        nombreTextField.setPromptText(ConfigManager.ConfigProperties.getProperty("nombreTextField"));
+        contraseniaText2.setText(ConfigManager.ConfigProperties.getProperty("contraseniaText2"));
+        contraseniaTextfield2.setPromptText(ConfigManager.ConfigProperties.getProperty("contraseniaTextfield2"));
+        correoText.setText(ConfigManager.ConfigProperties.getProperty("correoText"));
+        correoTextField.setPromptText(ConfigManager.ConfigProperties.getProperty("correoTextField"));
+        correoText2.setText(ConfigManager.ConfigProperties.getProperty("correoText2"));
+        correoTextField2.setPromptText(ConfigManager.ConfigProperties.getProperty("correoTextField2"));
+        buttonAceptarRegistrar.setText(ConfigManager.ConfigProperties.getProperty("buttonAceptarRegistrar"));
+        buttonAtras.setText(ConfigManager.ConfigProperties.getProperty("buttonAtras"));
+
     }
 
     /**

@@ -32,6 +32,10 @@ public class RegistrarController extends AbstractController {
     @FXML private Button buttonAcetarRegistrar;
     @FXML private Button buttonAtras;
 
+    @FXML
+    public void initialize(){
+        cambiarIdiomaRegistrar();
+    }
     /**
      * mete al usuario en la bbdd
      */

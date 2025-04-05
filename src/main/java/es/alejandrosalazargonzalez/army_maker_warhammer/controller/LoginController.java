@@ -28,6 +28,7 @@ import javafx.stage.Stage;
  */
 public class LoginController extends AbstractController {
     
+
     @FXML
     private Text errorText;
 
@@ -37,10 +38,15 @@ public class LoginController extends AbstractController {
     @FXML private Button crearCuentaButton;
     @FXML private ComboBox<String> idiomaComboBox;
 
-    @FXML void initialize(){
-        List<String> idiomas = new ArrayList<>(Arrays.asList("es","en"));
+    @FXML
+    public void initialize(){
+        List<String> idiomas = new ArrayList<>();
+        idiomas.add("es");
+        idiomas.add("en");
         idiomaComboBox.getItems().addAll(idiomas);
-    }
+        cargarIdiomaActual();
+        cambiarIdiomaLogIn();
+    } 
 
     /**
      * va a la pantalla de posts despues de comprobar que todo es correcto
@@ -81,7 +87,10 @@ public class LoginController extends AbstractController {
      */
     @FXML
     private void comboBoxCambiarIdioma(){
-        String path = "src/main/resources/idioma-"+idiomaComboBox.getValue().toString()+".properties";
-        ConfigManager.ConfigProperties.setPath(path);
+        String idioma = idiomaComboBox.getValue().toString();
+        setIdioma(idioma);
+        cargarIdiomaActual();
+        cambiarIdiomaLogIn();
     }
+
 }
