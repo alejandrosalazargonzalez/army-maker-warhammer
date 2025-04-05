@@ -11,28 +11,36 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="514.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.loginController">
-    <padding>
-        <Insets bottom="20.0" top="20.0" />
-    </padding>
-   <ComboBox fx:id="idiomaComboBox" onAction="#comboBoxCambiarIdioma" prefWidth="117.0" promptText="Idioma" styleClass="botones" stylesheets="@style.css">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+   minWidth="-Infinity" prefHeight="900.0" prefWidth="514.0" styleClass="background"
+   stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.LoginController">
+   <padding>
+      <Insets bottom="20.0" top="20.0" />
+   </padding>
+   <ComboBox fx:id="idiomaComboBox" onAction="#comboBoxCambiarIdioma" prefWidth="117.0"
+      promptText="Idioma" styleClass="botones" stylesheets="@style.css">
       <VBox.margin>
          <Insets bottom="10.0" />
       </VBox.margin>
    </ComboBox>
 
-    <Label fx:id="iniciarText" prefHeight="18.0" prefWidth="478.0" text="Iniciar" textFill="WHITE">
+   <Label fx:id="iniciarText" prefHeight="18.0" prefWidth="478.0" text="Iniciar" textFill="WHITE">
       <VBox.margin>
          <Insets left="15.0" />
-      </VBox.margin></Label>
+      </VBox.margin>
+   </Label>
    <Line endX="250.0" startX="-250.0" stroke="WHITE" styleClass="line">
       <VBox.margin>
          <Insets bottom="15.0" left="15.0" right="5.0" top="5.0" />
       </VBox.margin>
    </Line>
-   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="497.0" styleClass="backgroundIniciar" stylesheets="@style.css">
+   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="119.0" prefWidth="497.0" styleClass="backgroundIniciar" stylesheets="@style.css">
       <children>
-         <Label fx:id="usuarioText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="476.0" text="Usuario:" textFill="WHITE">
+         <Label fx:id="usuarioText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="18.0" prefWidth="476.0" text="Usuario:"
+            textFill="WHITE">
             <VBox.margin>
                <Insets left="20.0" />
             </VBox.margin>
@@ -42,26 +50,33 @@
                <Insets bottom="15.0" left="20.0" right="20.0" />
             </VBox.margin>
          </TextField>
-         <Label fx:id="contraseniaText" prefHeight="18.0" prefWidth="488.0" text="Contraseña:" textFill="WHITE">
+         <Label fx:id="contraseniaText" prefHeight="18.0" prefWidth="488.0" text="Contraseña:"
+            textFill="WHITE">
             <VBox.margin>
                <Insets left="20.0" />
             </VBox.margin>
          </Label>
-         <PasswordField fx:id="contraseniaTextField" promptText="Introduzca su Contraseña" stylesheets="@style.css">
+         <PasswordField fx:id="contraseniaTextField" promptText="Introduzca su Contraseña"
+            stylesheets="@style.css">
             <VBox.margin>
                <Insets left="20.0" right="20.0" />
             </VBox.margin>
          </PasswordField>
       </children>
    </VBox>
-    <Button fx:id="iniciarButton" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ButtonToPostsOnClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Iniciar" textAlignment="CENTER">
+   <Button fx:id="iniciarButton" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" onAction="#buttonToPostsOnClick" prefHeight="30.0"
+      prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Iniciar"
+      textAlignment="CENTER">
       <font>
          <Font size="18.0" />
       </font>
       <VBox.margin>
          <Insets top="550.0" />
-      </VBox.margin></Button>
-   <Text fx:id="olvidasteText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste la contraseña?" wrappingWidth="488.8000183105469">
+      </VBox.margin>
+   </Button>
+   <Text fx:id="olvidasteText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+      text="¿Olvidaste la contraseña?" wrappingWidth="488.8000183105469">
       <VBox.margin>
          <Insets bottom="5.0" left="15.0" top="10.0" />
       </VBox.margin>
@@ -69,13 +84,18 @@
    <Line endX="250.0" startX="-250.0" stroke="WHITE">
       <VBox.margin>
          <Insets left="15.0" right="5.0" />
-      </VBox.margin></Line>
-   <Text fx:id="nuevoUsuarioText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Nuevo usuario?" wrappingWidth="487.2001037597656">
+      </VBox.margin>
+   </Line>
+   <Text fx:id="nuevoUsuarioText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+      text="¿Nuevo usuario?" wrappingWidth="487.2001037597656">
       <VBox.margin>
          <Insets bottom="10.0" left="15.0" top="5.0" />
       </VBox.margin>
    </Text>
-   <Button fx:id="crearCuentaButton" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#logInToRegistrarOnClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones" stylesheets="@style.css" text="Crear cuenta" textAlignment="CENTER">
+   <Button fx:id="crearCuentaButton" alignment="TOP_CENTER" contentDisplay="CENTER"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      onAction="#logInToRegistrarOnClick" prefHeight="30.0" prefWidth="117.0" styleClass="botones"
+      stylesheets="@style.css" text="Crear cuenta" textAlignment="CENTER">
       <font>
          <Font size="13.0" />
       </font>

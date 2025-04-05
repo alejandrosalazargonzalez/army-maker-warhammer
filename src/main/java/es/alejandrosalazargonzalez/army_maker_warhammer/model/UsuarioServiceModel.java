@@ -39,7 +39,7 @@ public class UsuarioServiceModel extends Conexion {
     public UsuarioEntity obtenerUsuarioPorEmail(String email) {
         try {
             String sql = "SELECT * FROM Usuario " + "where email='"+email+"'";
-        ArrayList<UsuarioEntity> usuarios = ejecutarSql(sql);
+        ArrayList<UsuarioEntity> usuarios = leerSql(sql);
         if (usuarios.isEmpty()) {
             return null;
         }
@@ -58,28 +58,21 @@ public class UsuarioServiceModel extends Conexion {
      */
     public ArrayList<UsuarioEntity> obtenerUsarios() throws SQLException {
         String sql = "SELECT * FROM Usuario";
-        return ejecutarSql(sql);
+        return leerSql(sql);
     }
 
     /**
      * aniade un usuario a la base de datos
      * @param usuario a agregar
      * @return true/false
+     * @throws SQLException 
      */
-    public boolean addUsuario(UsuarioEntity usuario){
+    public boolean addUsuario(UsuarioEntity usuario) throws SQLException{
         if (usuario == null) {
             return false;
         }
-        String sql = "Insert into usuarios (nombreUsuario,correo,nombre,contrasenia) values ('"
-        + usuario.getUsuario() + "', '" + usuario.getEmail() + "',' " +
-        usuario.getNombre() + "', '" + usuario.getContrasenia() + "'";
-        try {
-            ejecutarSql(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+        String sql = "INSERT INTO Usuario (nombreUsuario, email, nombre, contrasenia) VALUES (?, ?, ?, ?)";
+        return ejecutarUpdate(sql, usuario);
     }
 
     /**
@@ -89,7 +82,7 @@ public class UsuarioServiceModel extends Conexion {
      * @return ArrayList<UsuarioEntity>
      * @throws SQLException
      */
-    public ArrayList<UsuarioEntity> ejecutarSql(String sql) throws SQLException {
+    public ArrayList<UsuarioEntity> leerSql(String sql) throws SQLException {
         ArrayList<UsuarioEntity> usuarios = new ArrayList<>();
         try {
             PreparedStatement sentencia = getConnection().prepareStatement(sql);
@@ -111,4 +104,27 @@ public class UsuarioServiceModel extends Conexion {
         return usuarios;
     }
 
+    /**
+     * modifica la base de datos segun el sql insertado
+     * @param sql
+     * @param usuario
+     * @return
+     * @throws SQLException
+     */
+    public boolean ejecutarUpdate(String sql, UsuarioEntity usuario) throws SQLException {
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setString(1, usuario.getUsuario());
+            stmt.setString(2, usuario.getEmail());
+            stmt.setString(3, usuario.getNombre());
+            stmt.setString(4, usuario.getContrasenia());
+            stmt.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            cerrar();
+        }
+    }
+    
 }

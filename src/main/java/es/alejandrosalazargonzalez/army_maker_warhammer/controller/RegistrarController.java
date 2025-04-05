@@ -4,26 +4,23 @@ package es.alejandrosalazargonzalez.army_maker_warhammer.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.PrincipalApplication;
 import es.alejandrosalazargonzalez.army_maker_warhammer.controller.abstractas.AbstractController;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioEntity;
-import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
  *   @author: alejandrosalazargonzalez
  *   @version: 1.0.0
  */
-public class registrarController extends AbstractController {
+public class RegistrarController extends AbstractController {
     
     @FXML private TextField usuarioTextField;
     @FXML private TextField nombreTextField;
@@ -35,54 +32,69 @@ public class registrarController extends AbstractController {
     @FXML private Button buttonAcetarRegistrar;
     @FXML private Button buttonAtras;
 
+    /**
+     * mete al usuario en la bbdd
+     */
     @FXML
     private void onButtonAceptarRegClick(){
-        if(usuarioTextField == null || usuarioTextField.getText().isEmpty()){
-            errorText.setText("Usuario no puede estar vacio");
-            return;
-        }
-        if(nombreTextField == null || nombreTextField.getText().isEmpty()){
-            errorText.setText("Nombre no puede estar vacio");
-            return;
-        }
-        if(contraseniaTextfield == null || contraseniaTextfield.getText().isEmpty()){
-            errorText.setText("Contrasenia no puede estar vacio");
-            return;
-        }
-        if(contraseniaTextfield2 == null || contraseniaTextfield2.getText().isEmpty()){
-            errorText.setText("Repetir contrasenia no puede estar vacio");
-            return;
-        }
-        if (!contraseniaTextfield.getText().equals(contraseniaTextfield2.getText()) ) {
-            errorText.setText("La contrasenia repetida debe ser igual");
-            return;
-        }
-        if(correoTextField == null || correoTextField.getText().isEmpty()){
-            errorText.setText("El correo no puede estar vacio");
-            return;
-        }
-        if(correoTextField2 == null || correoTextField2.getText().isEmpty()) {
-            errorText.setText("Correo repetir de los valores puede estar vacio");
-            return;
-        }
-        if (!correoTextField.getText().equals(correoTextField2.getText()) ) {
-            errorText.setText("Los correos deben ser iguales");
+        if (!comprobarRegistrar()) {
             return;
         }
         UsuarioEntity nuevoUsuario = new UsuarioEntity(usuarioTextField.getText(), correoTextField.getText(), nombreTextField.getText(),contraseniaTextfield.getText());
         ArrayList<UsuarioEntity> usuarioEntityList;
         try {
             usuarioEntityList = getUsuarioServiceModel().obtenerUsarios();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            errorText.setText("error no controlado");
-            return;
-        }
         if (usuarioEntityList.contains(nuevoUsuario)) {
             errorText.setText("Ya hay una cuenta registrada con ese correo");
             return;
         }
-        getUsuarioServiceModel().addUsuario(nuevoUsuario);
+            getUsuarioServiceModel().addUsuario(nuevoUsuario);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            errorText.setText("error no controlado");
+        }
+        registrarToLoginOnClick();
+    }
+
+    /**
+     * comprueba que los campos sean validos
+     * @return true/false
+     */
+    @FXML
+    private boolean comprobarRegistrar(){
+        if(!comprobarTextField(usuarioTextField)){
+            errorText.setText("Usuario no puede estar vacio");
+            return false;
+        }
+        if(!comprobarTextField(nombreTextField)){
+            errorText.setText("Nombre no puede estar vacio");
+            return false;
+        }
+        if(!comprobarTextField(contraseniaTextfield)){
+            errorText.setText("Contrasenia no puede estar vacio");
+            return false;
+        }
+        if(!comprobarTextField(contraseniaTextfield2)){
+            errorText.setText("Repetir contrasenia no puede estar vacio");
+            return false;
+        }
+        if (!contraseniaTextfield.getText().equals(contraseniaTextfield2.getText()) ) {
+            errorText.setText("La contrasenia repetida debe ser igual");
+            return false;
+        }
+        if(!comprobarTextField(correoTextField)){
+            errorText.setText("El correo no puede estar vacio");
+            return false;
+        }
+        if(!comprobarTextField(correoTextField2)) {
+            errorText.setText("Correo repetir de los valores puede estar vacio");
+            return false;
+        }
+        if (!correoTextField.getText().equals(correoTextField2.getText()) ) {
+            errorText.setText("Los correos deben ser iguales");
+            return false;
+        }
+        return true;
     }
 
     @FXML

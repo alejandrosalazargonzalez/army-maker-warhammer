@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  *   @author: alejandrosalazargonzalez
  *   @version: 1.0.0
  */
-public class loginController {
+public class LoginController {
     
     @FXML
     private Label iniciarText;
@@ -31,14 +31,14 @@ public class loginController {
     @FXML private ComboBox idiomaComboBox;
 
     @FXML
-    protected void ButtonToPostsOnClick() {
+    protected void buttonToPostsOnClick() {
         iniciarText.setText("¡Bienvenidos al mundo de la programación!");
     }
 
     /**
      * cambia a la pantalla registrar
      */
-    @FXML 
+    @FXML
     private void logInToRegistrarOnClick(){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("registrar.fxml"));

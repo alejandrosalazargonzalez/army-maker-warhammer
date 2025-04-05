@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.util.Properties;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioServiceModel;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 
 /**
@@ -88,5 +90,13 @@ public abstract class AbstractController {
         return this.usuarioServiceModel;
     }
 
+    @FXML
+    public boolean comprobarTextField( TextField campo){
+        if (campo.getText() == null || campo.getText().isEmpty()) {
+            return false;
+        }
+        return true;
+        //return campo != null && !campo.getText().isEmpty();
+    }
 
 }
