@@ -68,7 +68,6 @@ public class RegistrarController extends AbstractController {
      * comprueba que los campos sean validos
      * @return true/false
      */
-    @FXML
     private boolean comprobarRegistrar(){
         if(!comprobarTextField(usuarioTextField)){
             errorText.setText("Usuario no puede estar vacio");
