@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -81,13 +82,14 @@ public abstract class AbstractController {
      * 
      * @param idioma a cargar
      */
-    protected void cargarIdiomaActual() {
+    protected String cargarIdiomaActual() {
         if (idiomaActual == null || idiomaActual.isEmpty()) {
             idiomaActual = "es";
         }
 
         String path = pathFichero + ficheroStr + idiomaActual + ".properties";
         ConfigManager.ConfigProperties.setPath(path);
+        return idiomaActual;
     }
 
     /**
@@ -121,6 +123,29 @@ public abstract class AbstractController {
      */
     @FXML
     public void cambiarPantalla(Button botton, String pantalla, String pantallaAnterior) {
+        try {
+            this.pantallaAnterior = pantallaAnterior;
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(pantalla + ".fxml"));
+            Stage stage = (Stage) botton.getScene().getWindow();
+            Scene scene;
+            scene = new Scene(fxmlLoader.load(), 510, 900);
+            stage.setResizable(false);
+            stage.setTitle("Pantalla Princial");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+        /**
+     * cambia a la pantalla indicada usando el boton que se le pasa como referencia
+     * 
+     * @param botton
+     * @param pantalla
+     */
+    @FXML
+    public void cambiarPantalla(Hyperlink botton, String pantalla, String pantallaAnterior) {
         try {
             this.pantallaAnterior = pantallaAnterior;
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(pantalla + ".fxml"));
