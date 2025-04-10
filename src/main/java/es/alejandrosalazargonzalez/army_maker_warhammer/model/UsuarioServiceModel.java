@@ -8,10 +8,9 @@ import java.util.ArrayList;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.abstractas.Conexion;
 
-
 /**
- *   @author: alejandrosalazargonzalez
- *   @version: 1.0.0
+ * @author: alejandrosalazargonzalez
+ * @version: 1.0.0
  */
 public class UsuarioServiceModel extends Conexion {
 
@@ -33,6 +32,7 @@ public class UsuarioServiceModel extends Conexion {
 
     /**
      * Saca todos los usuarios
+     * 
      * @return ArrayList<UsuarioEntity>
      * @throws SQLException
      */
@@ -43,51 +43,54 @@ public class UsuarioServiceModel extends Conexion {
 
     /**
      * Obtiene todos los usuarios por su email
+     * 
      * @param email del usuario
      * @return UsuarioEntity
      */
     public UsuarioEntity obtenerUsuarioPorEmail(String email) {
         try {
-            String sql = "SELECT * FROM Usuario " + "where email='"+email+"'";
-        ArrayList<UsuarioEntity> usuarios = leerSql(sql);
-        if (usuarios.isEmpty()) {
-            return null;
-        }
-        return usuarios.get(0);
+            String sql = "SELECT * FROM Usuario " + "where email='" + email + "'";
+            ArrayList<UsuarioEntity> usuarios = leerSql(sql);
+            if (usuarios.isEmpty()) {
+                return null;
+            }
+            return usuarios.get(0);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-        
+
     }
 
     /**
      * Obtiene todos los usuarios por su usuario
+     * 
      * @param usuario a buscar
      * @return UsuarioEntity
      */
     public UsuarioEntity obtenerUsuarioPorUsuario(String usuario) {
         try {
-            String sql = "SELECT * FROM Usuario " + "where nombreUsuario='"+usuario+"'";
-        ArrayList<UsuarioEntity> usuarios = leerSql(sql);
-        if (usuarios.isEmpty()) {
-            return null;
-        }
-        return usuarios.get(0);
+            String sql = "SELECT * FROM Usuario " + "where nombreUsuario='" + usuario + "'";
+            ArrayList<UsuarioEntity> usuarios = leerSql(sql);
+            if (usuarios.isEmpty()) {
+                return null;
+            }
+            return usuarios.get(0);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-        
+
     }
 
     /**
      * aniade un usuario a la base de datos
+     * 
      * @param usuario a agregar
      * @return true/false
      * @throws SQLException
      */
-    public boolean addUsuario(UsuarioEntity usuario) throws SQLException{
+    public boolean addUsuario(UsuarioEntity usuario) throws SQLException {
         if (usuario == null) {
             return false;
         }
@@ -113,7 +116,7 @@ public class UsuarioServiceModel extends Conexion {
                 String nombreStr = resultado.getString("nombre");
                 String contraseniaStr = resultado.getString("contrasenia");
                 String emailStr = resultado.getString("email");
-                UsuarioEntity usuarioModel = new UsuarioEntity(usuarioStr,emailStr, nombreStr, contraseniaStr);
+                UsuarioEntity usuarioModel = new UsuarioEntity(usuarioStr, emailStr, nombreStr, contraseniaStr);
                 usuarios.add(usuarioModel);
             }
         } catch (Exception e) {
@@ -126,6 +129,7 @@ public class UsuarioServiceModel extends Conexion {
 
     /**
      * modifica la base de datos segun el sql insertado
+     * 
      * @param sql
      * @param usuario
      * @return
@@ -146,5 +150,5 @@ public class UsuarioServiceModel extends Conexion {
             cerrar();
         }
     }
-    
+
 }

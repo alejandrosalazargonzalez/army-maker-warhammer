@@ -5,15 +5,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 /**
- *   @author: alejandrosalazargonzalez
- *   @version: 1.0.0
+ * @author: alejandrosalazargonzalez
+ * @version: 1.0.0
  */
 public class PostsController {
-    
-    @FXML private Button imageProfileButton;
 
     @FXML
-    public void postToProfileOnCliclk(){
+    private Button imageProfileButton;
+
+    @FXML
+    public void postToProfileOnCliclk() {
 
     }
 }

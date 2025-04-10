@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.util.Properties;
 
 /**
- *   @author: alejandrosalazargonzalez
- *   @version: 1.0.0
+ * @author: alejandrosalazargonzalez
+ * @version: 1.0.0
  */
 
 public class ConfigManager {
@@ -23,12 +23,13 @@ public class ConfigManager {
         public static String getProperty(String key) {
             return properties.getProperty(key);
         }
+
         public static void setPath(String rutaPath) {
             System.out.println("Dentro del setPath");
             File file = new File(rutaPath);
 
             if (!file.exists() || !file.isFile()) {
-                System.out.println("Path:"+file.getAbsolutePath());
+                System.out.println("Path:" + file.getAbsolutePath());
             }
             path = rutaPath;
             try {
