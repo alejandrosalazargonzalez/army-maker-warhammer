@@ -2,7 +2,6 @@ package es.alejandrosalazargonzalez.army_maker_warhammer.config;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
@@ -24,7 +23,6 @@ public class ConfigManager {
         public static String getProperty(String key) {
             return properties.getProperty(key);
         }
-//pone que lo actualizaste hace 2 semanas
         public static void setPath(String rutaPath) {
             System.out.println("Dentro del setPath");
             File file = new File(rutaPath);

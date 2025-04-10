@@ -1,20 +1,14 @@
-
 package es.alejandrosalazargonzalez.army_maker_warhammer.controller;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import es.alejandrosalazargonzalez.army_maker_warhammer.PrincipalApplication;
 import es.alejandrosalazargonzalez.army_maker_warhammer.controller.abstractas.AbstractController;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioEntity;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 /**
  *   @author: alejandrosalazargonzalez
