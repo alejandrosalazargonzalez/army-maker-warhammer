@@ -99,6 +99,21 @@ public class UsuarioServiceModel extends Conexion {
     }
 
     /**
+     * aniade un usuario a la base de datos
+     * 
+     * @param usuario a agregar
+     * @return true/false
+     * @throws SQLException
+     */
+    public boolean eliminarUsuario(UsuarioEntity usuario) throws SQLException {
+        if (usuario == null) {
+            return false;
+        }
+        String sql = "Delete from usuarios where ";
+        return ejecutarUpdate(sql, usuario);
+    }
+
+    /**
      * Ejecuta la sencuencia sql introducida
      *
      * @param sql a ejecutar
@@ -151,4 +166,15 @@ public class UsuarioServiceModel extends Conexion {
         }
     }
 
+    public boolean eliminar(String sql) throws SQLException{
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            int filas = stmt.executeUpdate(sql);
+            return filas > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally{
+            cerrar();
+        }
+    }
 }

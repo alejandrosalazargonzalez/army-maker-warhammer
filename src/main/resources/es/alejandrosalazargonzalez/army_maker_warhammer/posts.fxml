@@ -18,7 +18,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="optionButton" layoutX="414.0" layoutY="34.0" mnemonicParsing="false" onAction="#optionButtonOnClick" prefHeight="80.0" prefWidth="80.0" text="Opciones" />
+      <Button fx:id="optionButton" layoutX="414.0" layoutY="34.0" mnemonicParsing="false" onAction="#optionButtonOnClick" prefHeight="80.0" prefWidth="80.0" styleClass="botones" stylesheets="@style.css" text="Opciones" />
       <Line endX="257.0" layoutX="257.0" layoutY="185.0" startX="-257.0" stroke="WHITE" />
       <Button fx:id="imageProfileButton" layoutX="21.0" layoutY="18.0" mnemonicParsing="false" onAction="#postToProfileOnCliclk" prefHeight="114.0" prefWidth="119.0" styleClass="profileImage" stylesheets="@style.css" />
    </children>

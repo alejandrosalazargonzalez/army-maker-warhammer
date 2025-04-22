@@ -29,6 +29,7 @@ public class PostsController extends AbstractController{
      */
     @FXML
     public void optionButtonOnClick(){
-
+        cambiarPantalla(optionButton, "opciones", "perfil");
     }
+
 }
