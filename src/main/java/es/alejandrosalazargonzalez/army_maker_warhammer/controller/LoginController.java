@@ -22,21 +22,21 @@ import javafx.scene.text.Text;
 public class LoginController extends AbstractController {
 
     @FXML
-    private ComboBox<String> idiomaComboBox;
+    public ComboBox<String> idiomaComboBox;
     @FXML
     public Label iniciarText;
     @FXML
     public Label usuarioText;
     @FXML
-    private TextField usuarioTextField;
+    public TextField usuarioTextField;
     @FXML
     public Label contraseniaText;
     @FXML
-    private PasswordField contraseniaTextField;
+    public PasswordField contraseniaTextField;
     @FXML
-    private Text errorText;
+    public Text errorText;
     @FXML
-    private Button iniciarButton;
+    public Button iniciarButton;
     @FXML
     public Hyperlink olvidasteText;
     @FXML
@@ -71,7 +71,7 @@ public class LoginController extends AbstractController {
      * 
      * @return true/false
      */
-    private boolean revisarCamposLogin() {
+    boolean revisarCamposLogin() {
         if (!comprobarTextField(usuarioTextField)) {
             errorText.setText("Usuario no puede estar vacio");
             return false;
@@ -108,8 +108,7 @@ public class LoginController extends AbstractController {
     /**
      * cambia el idioma de la web
      */
-    @FXML
-    private void comboBoxCambiarIdioma() {
+    @FXML void comboBoxCambiarIdioma() {
         String idioma = idiomaComboBox.getValue().toString();
         setIdioma(idioma);
         cargarIdiomaActual();
