@@ -109,9 +109,19 @@ public class UsuarioServiceModel extends Conexion {
         if (usuario == null) {
             return false;
         }
-        String sql = "Delete from usuarios where ";
-        return ejecutarUpdate(sql, usuario);
+        String sql = "DELETE FROM Usuario WHERE nombreUsuario = ?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setString(1, usuario.getUsuario());
+            stmt.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            cerrar();
+        }
     }
+
 
     /**
      * Ejecuta la sencuencia sql introducida
