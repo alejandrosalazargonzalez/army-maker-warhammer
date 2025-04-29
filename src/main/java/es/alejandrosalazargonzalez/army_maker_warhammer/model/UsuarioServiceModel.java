@@ -49,7 +49,7 @@ public class UsuarioServiceModel extends Conexion {
      */
     public UsuarioEntity obtenerUsuarioPorEmail(String email) {
         try {
-            String sql = "SELECT * FROM Usuario " + "where email='" + email + "'";
+            String sql = "SELECT * FROM Usuario where email='" + email + "'";
             ArrayList<UsuarioEntity> usuarios = leerSql(sql);
             if (usuarios.isEmpty()) {
                 return null;
@@ -69,7 +69,7 @@ public class UsuarioServiceModel extends Conexion {
      */
     public UsuarioEntity obtenerUsuarioPorUsuario(String usuario) {
         try {
-            String sql = "SELECT * FROM Usuario " + "where nombreUsuario='" + usuario + "'";
+            String sql = "SELECT * FROM Usuario where nombreUsuario='" + usuario + "'";
             ArrayList<UsuarioEntity> usuarios = leerSql(sql);
             if (usuarios.isEmpty()) {
                 return null;
