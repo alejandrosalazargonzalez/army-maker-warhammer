@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
  * @author: alejandrosalazargonzalez
  * @version: 1.0.0
  */
-public class PostsController extends AbstractController{
+public class PostsController extends AbstractController {
 
     @FXML
     private Button imageProfileButton;
@@ -21,14 +21,14 @@ public class PostsController extends AbstractController{
      */
     @FXML
     public void postToProfileOnCliclk() {
-        cambiarPantalla(imageProfileButton,"perfil","posts");
+        cambiarPantalla(imageProfileButton, "perfil", "posts");
     }
-    
+
     /**
      * va a la pantalla de las opciones
      */
     @FXML
-    public void optionButtonOnClick(){
+    public void optionButtonOnClick() {
         cambiarPantalla(optionButton, "opciones", "perfil");
     }
 

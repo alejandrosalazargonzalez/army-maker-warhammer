@@ -6,20 +6,22 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 /**
- *   @author: alejandrosalazargonzalez
- *   @version: 1.0.0
+ * @author: alejandrosalazargonzalez
+ * @version: 1.0.0
  */
 public class PerfilController extends AbstractController {
-    @FXML private Button atrasButton;
-    @FXML private Button optionButton;
+    @FXML
+    private Button atrasButton;
+    @FXML
+    private Button optionButton;
 
     @FXML
-    public void optionButtonOnClick(){
+    public void optionButtonOnClick() {
         cambiarPantalla(optionButton, "opciones", "perfil");
     }
 
     @FXML
-    public void atrasOnClick(){
+    public void atrasOnClick() {
         cambiarPantalla(atrasButton);
     }
 }

@@ -101,14 +101,15 @@ public class LoginController extends AbstractController {
     }
 
     @FXML
-    private void loginToRecuperarOnClick(){
-        cambiarPantalla(crearCuentaButton, getIdioma(), getIdioma());
+    private void loginToRecuperarOnClick() {
+        cambiarPantalla(crearCuentaButton, "recuperar", "app-init");
     }
 
     /**
      * cambia el idioma de la web
      */
-    @FXML void comboBoxCambiarIdioma() {
+    @FXML
+    void comboBoxCambiarIdioma() {
         String idioma = idiomaComboBox.getValue().toString();
         setIdioma(idioma);
         cargarIdiomaActual();

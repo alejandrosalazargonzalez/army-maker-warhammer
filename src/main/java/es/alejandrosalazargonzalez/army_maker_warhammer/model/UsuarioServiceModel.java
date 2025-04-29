@@ -59,7 +59,6 @@ public class UsuarioServiceModel extends Conexion {
             e.printStackTrace();
             return null;
         }
-
     }
 
     /**
@@ -80,7 +79,6 @@ public class UsuarioServiceModel extends Conexion {
             e.printStackTrace();
             return null;
         }
-
     }
 
     /**
