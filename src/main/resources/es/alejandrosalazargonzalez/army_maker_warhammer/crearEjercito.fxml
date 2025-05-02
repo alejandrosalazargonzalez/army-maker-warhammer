@@ -10,7 +10,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="510.0" styleClass="background2" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Line endX="247.4000244140625" endY="7.62939453125E-6" layoutX="255.0" layoutY="63.0" startX="-248.59999084472656" startY="7.62939453125E-6" stroke="WHITE" />
@@ -30,14 +29,16 @@
       <TextField fx:id="nombreDeUnidadField" layoutX="29.0" layoutY="366.0" prefHeight="26.0" prefWidth="210.0" />
       <Text fx:id="puntosDeUnidadText" fill="WHITE" layoutX="249.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntos de la unidad" />
       <TextField fx:id="puntosDeUnidadField" layoutX="254.0" layoutY="366.0" prefHeight="26.0" prefWidth="96.0" />
-      <ToggleButton fx:id="activarLimitePuntosToggle" layoutX="338.0" layoutY="424.0" mnemonicParsing="false" onAction="#activarLimitePuntos" styleClass="botones" stylesheets="@style.css" text="Activar limite de puntos" />
-      <Text fx:id="limitePuntosText" fill="WHITE" layoutX="362.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Establece el limite" visible="false" />
-      <TextField fx:id="limitePuntosField" layoutX="362.0" layoutY="497.0" prefHeight="26.0" prefWidth="96.0" visible="false" />
+      <ToggleButton fx:id="activarLimitePuntosToggle" layoutX="352.0" layoutY="423.0" mnemonicParsing="false" onAction="#activarLimitePuntos" styleClass="botones" stylesheets="@style.css" text="Activar limite de puntos" />
+      <Text fx:id="limitePuntosText" fill="WHITE" layoutX="376.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Establece el limite" visible="false" />
+      <TextField fx:id="limitePuntosField" layoutX="376.0" layoutY="496.0" prefHeight="26.0" prefWidth="96.0" visible="false" />
       <ListView fx:id="listaEjercitoList" layoutX="39.0" layoutY="568.0" prefHeight="250.0" prefWidth="434.0" />
       <Button layoutX="48.0" layoutY="842.0" mnemonicParsing="false" styleClass="botones" stylesheets="@style.css" text="Atras" />
       <Button fx:id="aceptarLiderButton" layoutX="405.0" layoutY="291.0" mnemonicParsing="false" onAction="#aceptarLiderOnClick" styleClass="botones" text="Aceptar" />
-      <Button fx:id="aceptarUnidadButton" layoutX="45.0" layoutY="424.0" mnemonicParsing="false" styleClass="botones" text="Aceptar" />
+      <Button fx:id="aceptarUnidadButton" layoutX="184.0" layoutY="423.0" mnemonicParsing="false" styleClass="botones" text="Aceptar" />
       <Text fx:id="numeroUnidadesText" fill="WHITE" layoutX="367.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero de Unidades" />
       <TextField fx:id="numeroDeUnidadesField" layoutX="367.0" layoutY="366.0" prefHeight="26.0" prefWidth="96.0" />
+      <Text fx:id="tipoDeUnidadText" fill="WHITE" layoutX="32.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de unidad" />
+      <TextField fx:id="puntosDeUnidadField1" layoutX="26.0" layoutY="421.0" prefHeight="26.0" prefWidth="96.0" promptText="(e.j: infanteria, vehiculo, elite)" />
    </children>
 </AnchorPane>

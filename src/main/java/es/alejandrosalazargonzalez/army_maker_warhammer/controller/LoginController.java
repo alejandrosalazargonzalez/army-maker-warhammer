@@ -89,6 +89,7 @@ public class LoginController extends AbstractController {
             errorText.setText("error en usuario o contraseña");
             return false;
         }
+        setUsuarioActual(usuario);
         return true;
     }
 

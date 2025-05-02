@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
+import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioEntity;
+
 /**
  * @author: alejandrosalazargonzalez
  * @version: 1.0.0

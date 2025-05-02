@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.PrincipalApplication;
 import es.alejandrosalazargonzalez.army_maker_warhammer.config.ConfigManager;
+import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioEntity;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +34,7 @@ public abstract class AbstractController {
 
     private Properties propertiesIdioma;
 
+    private static UsuarioEntity usuarioActual;
     /**
      * Constructor
      */
@@ -68,6 +70,14 @@ public abstract class AbstractController {
 
     public static void setIdioma(String idioma) {
         idiomaActual = idioma;
+    }
+
+    public static void setUsuarioActual(UsuarioEntity usuario){
+        usuarioActual=usuario;
+    }
+
+    public static UsuarioEntity getUsuarioActual(){
+        return usuarioActual;
     }
 
     /**
