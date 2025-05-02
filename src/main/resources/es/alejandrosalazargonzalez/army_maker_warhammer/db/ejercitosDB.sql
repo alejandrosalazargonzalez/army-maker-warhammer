@@ -1,33 +1,26 @@
--- Tabla de usuarios
-CREATE TABLE usuario (
-    id SERIAL PRIMARY KEY,
-    nombre_usuario VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE
-);
-
--- Tabla de generales (sin cambios)
+-- Tabla de generales
 CREATE TABLE general (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    habilidad_especial VARCHAR(255)
+    puntos_ejercito INT
 );
 
--- Tabla de ejércitos, ahora con referencia a usuario
+-- Tabla de ejércitos
 CREATE TABLE ejercito (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     faccion VARCHAR(100),
     sub_faccion VARCHAR(100),
     general_id INT NOT NULL,
-    usuario_id INT NOT NULL,
+    usuario INT NOT NULL,
     puntos INT,
     CONSTRAINT fk_ejercito_general
         FOREIGN KEY (general_id) REFERENCES general(id) ON DELETE CASCADE,
     CONSTRAINT fk_ejercito_usuario
-        FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE
+        FOREIGN KEY (usuario) REFERENCES usuario(nombreUsuario) ON DELETE CASCADE
 );
 
--- Tabla de unidades (sin cambios)
+-- Tabla de unidades
 CREATE TABLE unidad (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,

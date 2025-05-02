@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.PrincipalApplication;
 import es.alejandrosalazargonzalez.army_maker_warhammer.config.ConfigManager;
+import es.alejandrosalazargonzalez.army_maker_warhammer.model.EjercitoServiceModel;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioEntity;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
@@ -31,6 +32,7 @@ public abstract class AbstractController {
     static final String PATH_DB = "src/main/resources/es/alejandrosalazargonzalez/army_maker_warhammer/usuarios.db";
 
     private UsuarioServiceModel usuarioServiceModel;
+    private static EjercitoServiceModel ejercitoServiceModel;
 
     private Properties propertiesIdioma;
 
@@ -41,6 +43,7 @@ public abstract class AbstractController {
     protected AbstractController() {
         try {
             usuarioServiceModel = new UsuarioServiceModel(PATH_DB);
+            ejercitoServiceModel = new EjercitoServiceModel(PATH_DB);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -102,6 +105,15 @@ public abstract class AbstractController {
      */
     public UsuarioServiceModel getUsuarioServiceModel() {
         return this.usuarioServiceModel;
+    }
+
+    /**
+     * retorna el ejercitoServiceModel
+     * 
+     * @return ejercitoServiceModel
+     */
+    public EjercitoServiceModel getEjercitoServiceModel() {
+        return this.ejercitoServiceModel;
     }
 
     /**
