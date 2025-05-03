@@ -27,3 +27,9 @@
 -fx-background-color: transparent;
 -fx-padding: 10px;
 }
+
+.image{
+        -fx-border-style: dotted;
+        -fx-border-width: 2px;
+        -fx-border-color: white;
+}
