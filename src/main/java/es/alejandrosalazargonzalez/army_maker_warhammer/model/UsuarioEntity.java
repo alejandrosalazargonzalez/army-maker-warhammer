@@ -52,6 +52,11 @@ public class UsuarioEntity {
         return this.email;
     }
 
+    /**
+     * setea el email si es valido
+     * @param email a agregar
+     * @throws ExceptionInInitializerError
+     */
     public void setEmail(String email) throws ExceptionInInitializerError {
         if (!email.contains("@") || !email.contains(".com") ) {
             throw new ExceptionInInitializerError("El email debe tener un formato correcto");

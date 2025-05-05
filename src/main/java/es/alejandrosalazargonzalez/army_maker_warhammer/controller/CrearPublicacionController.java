@@ -7,8 +7,11 @@ import javafx.scene.control.Button;
 public class CrearPublicacionController extends AbstractController {
     @FXML Button atrasButton;
 
+    /**
+     * cambiar pantalla a opciones cuenta
+     */
     @FXML
     void atrasOnClick(){
-        cambiarPantalla(atrasButton, "opciones", "crearPublicacion");
+        cambiarPantalla(atrasButton);
     }
 }

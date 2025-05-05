@@ -12,7 +12,6 @@ import javafx.scene.text.Text;
  *   @author: alejandrosalazargonzalez
  *   @version: 1.0.0
  */
-
 public class CambiarCorreoController extends AbstractController {
     @FXML TextField introduzcaContraseniaField;
     @FXML TextField nuevoCorreoField;
@@ -43,9 +42,12 @@ public class CambiarCorreoController extends AbstractController {
         }
     }
 
+    /**
+     * cambiar pantalla a opciones cuenta
+     */
     @FXML
     void atrasOnClick(){
-        cambiarPantalla(atrasButton,"opcionesCuenta","cambiarCorreo");
+        cambiarPantalla(atrasButton);
     }
 
 }

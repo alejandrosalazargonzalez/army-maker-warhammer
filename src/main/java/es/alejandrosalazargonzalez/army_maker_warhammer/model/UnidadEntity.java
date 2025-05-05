@@ -18,6 +18,10 @@ public class UnidadEntity {
     public UnidadEntity(){
     }
 
+    /**
+     * constructor con el nombre de la unidad
+     * @param nombre
+     */
     public UnidadEntity(String nombre){
         this.nombre=nombre;
     }
@@ -88,10 +92,10 @@ public class UnidadEntity {
     @Override
     public String toString() {
         return
-            " nombre='" + getNombre() + "'" +
-            ", puntos='" + getPuntos() + "'" +
-            ", numeroModelos='" + getNumeroModelos() + "'" +
-            ", tipo='" + getTipo() + "'\n";
+            "\n--nombre= " + getNombre() + "\n" +
+            "--puntos= " + getPuntos() + "\n" +
+            "--numeroModelos= " + getNumeroModelos() + "\n" +
+            "--tipo= " + getTipo();
     }
     
 }

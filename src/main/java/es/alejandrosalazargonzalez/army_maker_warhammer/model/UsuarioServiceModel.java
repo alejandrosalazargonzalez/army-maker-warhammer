@@ -203,6 +203,12 @@ public class UsuarioServiceModel extends Conexion {
         }
     }
 
+    /**
+     * elimina segun el sql insertado
+     * @param sql a ejecutar
+     * @return true/false
+     * @throws SQLException
+     */
     public boolean eliminar(String sql) throws SQLException{
         try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
             int filas = stmt.executeUpdate(sql);

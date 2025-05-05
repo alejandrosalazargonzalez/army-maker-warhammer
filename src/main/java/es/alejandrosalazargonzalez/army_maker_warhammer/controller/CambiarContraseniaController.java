@@ -12,7 +12,6 @@ import javafx.scene.text.Text;
  *   @author: alejandrosalazargonzalez
  *   @version: 1.0.0
  */
-
 public class CambiarContraseniaController extends AbstractController {
     @FXML TextField contraseniaViejaField;
     @FXML TextField contraseniaNuevaField;
@@ -43,8 +42,11 @@ public class CambiarContraseniaController extends AbstractController {
         }
     }
 
+    /**
+     * cambia a la pantalla de opciones de cuenta
+     */
     @FXML
     void atrasOnClick(){
-        cambiarPantalla(atrasButton,"opcionesCuenta","cambiarContrasenia");
+        cambiarPantalla(atrasButton);
     }
 }

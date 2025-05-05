@@ -25,7 +25,7 @@ public class EjercitoEntity extends AbstractController{
         ejercito = new ArrayList<>();
     }
 
-        /**
+    /**
      * Constructor completo
      * @param nombre del ejercito
      * @param faccion del ejercito
@@ -138,11 +138,11 @@ public class EjercitoEntity extends AbstractController{
 
     @Override
     public String toString() {
-        return " nombre='" + getNombre() + "'\n" +
-            ", faccion='" + getFaccion() + "'\n" +
-            ", subFaccion='" + getSubFaccion() + "'\n" +
-            ", general='" + getGeneral() + "'\n" +
-            ", ejercito='" + getEjercito().toString() + "'\n" +
-            ", puntos='" + getPuntos() + "'\n";
+        return "-Nombre del Ejercito= " + getNombre() + "\n" +
+            "-Faccion= " + getFaccion() + "\n" +
+            "-SubFaccion= " + getSubFaccion() + "\n" +
+            "-General=" + getGeneral() + "\n" +
+            "-Ejercito= " + getEjercito().toString() + "\n" +
+            "-Puntos= " + getPuntos() + "\n";
     }
 }

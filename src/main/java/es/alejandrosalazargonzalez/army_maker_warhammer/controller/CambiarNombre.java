@@ -43,8 +43,11 @@ public class CambiarNombre extends AbstractController{
         }
     }
 
+    /**
+     * cambiar pantalla a opciones cuenta
+     */
     @FXML
     void atrasOnClick(){
-        cambiarPantalla(atrasButton,"opcionesCuenta","cambiarCorreo");
+        cambiarPantalla(atrasButton);
     }
 }

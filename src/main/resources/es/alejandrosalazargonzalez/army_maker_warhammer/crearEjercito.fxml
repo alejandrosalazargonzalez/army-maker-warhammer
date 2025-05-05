@@ -22,16 +22,16 @@
       <ComboBox fx:id="ejercitoComboBox" layoutX="179.0" layoutY="184.0" onAction="#elegirEjercito" prefWidth="150.0" promptText="Ejercito" styleClass="botones" stylesheets="@style.css" />
       <ComboBox fx:id="subFaccionComboBox" layoutX="181.0" layoutY="140.0" onAction="#elegirSubFaccion" prefWidth="150.0" promptText="Sub-faccion" styleClass="botones" stylesheets="@style.css" />
       <Text fx:id="nombreDelLiderText" fill="WHITE" layoutX="29.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del lider" />
-      <TextField fx:id="nombreDelLiderField" layoutX="29.0" layoutY="290.0" prefHeight="26.0" prefWidth="210.0" />
-      <Text fx:id="puntosDelLiderText" fill="WHITE" layoutX="260.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntos del lider" />
-      <TextField fx:id="puntosDelLiderField" layoutX="254.0" layoutY="290.0" prefHeight="26.0" prefWidth="96.0" />
+      <TextField fx:id="nombreDelLiderField" layoutX="29.0" layoutY="290.0" prefHeight="26.0" prefWidth="190.0" />
+      <Text fx:id="puntosDelLiderText" fill="WHITE" layoutX="244.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntos del lider" />
+      <TextField fx:id="puntosDelLiderField" layoutX="238.0" layoutY="290.0" prefHeight="26.0" prefWidth="96.0" />
       <Text fx:id="nombreDeLaUnidadText" fill="WHITE" layoutX="29.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de la unidad" />
-      <TextField fx:id="nombreDeUnidadField" layoutX="29.0" layoutY="366.0" prefHeight="26.0" prefWidth="210.0" />
-      <Text fx:id="puntosDeUnidadText" fill="WHITE" layoutX="249.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntos de la unidad" />
-      <TextField fx:id="puntosDeUnidadField" layoutX="254.0" layoutY="366.0" prefHeight="26.0" prefWidth="96.0" />
-      <ToggleButton fx:id="activarLimitePuntosToggle" layoutX="352.0" layoutY="423.0" mnemonicParsing="false" onAction="#activarLimitePuntos" styleClass="botones" stylesheets="@style.css" text="Activar limite de puntos" />
-      <Text fx:id="limitePuntosText" fill="WHITE" layoutX="376.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Establece el limite" visible="false" />
-      <TextField fx:id="limitePuntosField" layoutX="376.0" layoutY="496.0" prefHeight="26.0" prefWidth="96.0" visible="false" />
+      <TextField fx:id="nombreDeUnidadField" layoutX="29.0" layoutY="366.0" prefHeight="26.0" prefWidth="190.0" />
+      <Text fx:id="puntosDeUnidadText" fill="WHITE" layoutX="233.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntos de la unidad" />
+      <TextField fx:id="puntosDeUnidadField" layoutX="238.0" layoutY="366.0" prefHeight="26.0" prefWidth="96.0" />
+      <ToggleButton fx:id="activarLimitePuntosToggle" layoutX="334.0" layoutY="423.0" mnemonicParsing="false" onAction="#activarLimitePuntos" styleClass="botones" stylesheets="@style.css" text="Activar limite de puntos" />
+      <Text fx:id="limitePuntosText" fill="WHITE" layoutX="358.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Establece el limite" visible="false" />
+      <TextField fx:id="limitePuntosField" layoutX="358.0" layoutY="496.0" prefHeight="26.0" prefWidth="96.0" visible="false" />
       <ListView fx:id="listaEjercitoList" layoutX="39.0" layoutY="568.0" prefHeight="250.0" prefWidth="434.0" />
       <Button fx:id="atrasButton" layoutX="48.0" layoutY="842.0" mnemonicParsing="false" onAction="#atrasOnClick" styleClass="botones" stylesheets="@style.css" text="Atras" />
       <Button fx:id="aceptarLiderButton" layoutX="405.0" layoutY="291.0" mnemonicParsing="false" onAction="#aceptarLiderOnClick" styleClass="botones" text="Aceptar" />
@@ -42,7 +42,7 @@
       <TextField fx:id="tipoDeUnidadField" layoutX="26.0" layoutY="421.0" prefHeight="26.0" prefWidth="96.0" promptText="(e.j: infanteria, vehiculo, elite)" />
       <Text fx:id="nombreEjercitoText" fill="WHITE" layoutX="238.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <TextField fx:id="nombreEjercitoField" layoutX="180.0" layoutY="220.0" promptText="Elija un nombre para su ejercito" visible="false" />
-      <Button fx:id="guardarEjercitoButton" layoutX="394.0" layoutY="842.0" mnemonicParsing="false" onAction="#guardarEjercitoOnClick" styleClass="botones" text="Guardar Ejercito" />
-      <Text fx:id="errorText" fill="WHITE" layoutX="238.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="guardarEjercitoButton" layoutX="373.0" layoutY="842.0" mnemonicParsing="false" onAction="#guardarEjercitoOnClick" styleClass="botones" text="Guardar Ejercito" />
+      <Text fx:id="errorText" fill="RED" layoutX="128.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="231.2000274658203" />
    </children>
 </AnchorPane>

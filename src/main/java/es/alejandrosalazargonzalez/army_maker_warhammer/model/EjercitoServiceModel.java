@@ -6,6 +6,10 @@ import es.alejandrosalazargonzalez.army_maker_warhammer.model.abstractas.Conexio
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ *   @author: alejandrosalazargonzalez
+ *   @version: 1.0.0
+ */
 public class EjercitoServiceModel extends Conexion {
 
     public EjercitoServiceModel(String pathDb) throws SQLException {
@@ -15,7 +19,7 @@ public class EjercitoServiceModel extends Conexion {
     /**
      * agrega un ejercito a bbdd
      * 
-     * @param ejercito
+     * @param ejercito a insertar
      * @throws SQLException
      */
     public void insertarEjercito(EjercitoEntity ejercito) throws SQLException {
@@ -141,8 +145,8 @@ public class EjercitoServiceModel extends Conexion {
 
     /**
      * inserta un general al ejercito
-     * @param general
-     * @return
+     * @param general a insertar
+     * @return int
      * @throws SQLException
      */
     private int insertarGeneral(GeneralEntity general) throws SQLException {
@@ -163,7 +167,7 @@ public class EjercitoServiceModel extends Conexion {
     /**
      * inserta una unidad al ejercito
      * @param unidad a insertar
-     * @param ejercitoId
+     * @param ejercitoId id del ejercito
      * @throws SQLException
      */
     private void insertarUnidad(UnidadEntity unidad, int ejercitoId) throws SQLException {
@@ -210,7 +214,7 @@ public class EjercitoServiceModel extends Conexion {
 
     /**
      * buca un ejercito por su nombre
-     * @param nombreBuscado
+     * @param nombreBuscado nombre del ejercito
      * @return EjercitoEntity
      * @throws SQLException
      */
@@ -238,7 +242,7 @@ public class EjercitoServiceModel extends Conexion {
 
     /**
      * elimina un ejercito
-     * @param ejercitoId
+     * @param ejercitoId id del ejercito a eliminar
      * @throws SQLException
      */
     public void eliminarEjercito(int ejercitoId) throws SQLException {
@@ -251,8 +255,8 @@ public class EjercitoServiceModel extends Conexion {
 
     /**
      * saca el general por su id
-     * @param id
-     * @return
+     * @param id del general
+     * @return GeneralEntity
      * @throws SQLException
      */
     private GeneralEntity obtenerGeneralPorId(int id) throws SQLException {
@@ -271,7 +275,7 @@ public class EjercitoServiceModel extends Conexion {
 
     /**
      * lee todos los ejercitos con una id
-     * @param ejercitoId
+     * @param ejercitoId id del ejercito
      * @return ArrayList<UnidadEntity>
      * @throws SQLException
      */
@@ -295,10 +299,10 @@ public class EjercitoServiceModel extends Conexion {
     }
 
     /**
-     * Obtiene todos los ejércitos de un usuario específico
+     * Obtiene todos los ejercitos de un usuario especifico
      * 
-     * @param usuario el usuario del que queremos obtener los ejércitos
-     * @return ArrayList<EjercitoEntity> lista de ejércitos del usuario
+     * @param usuario el usuario del que queremos obtener los ejercitos
+     * @return ArrayList<EjercitoEntity>
      * @throws SQLException si hay un error en la base de datos
      */
     public ArrayList<EjercitoEntity> obtenerEjercitosDeUsuario(UsuarioEntity usuario) throws SQLException {
@@ -332,7 +336,6 @@ public class EjercitoServiceModel extends Conexion {
         } finally {
             cerrar();
         }
-    
         return ejercitos;
     }
 }

@@ -31,6 +31,9 @@ public class RecuperarController extends AbstractController {
     @FXML
     private Button atrasButton;
 
+    /**
+     * comprueba que los campos sean validos y muestra la contraseña
+     */
     @FXML
     void aceptarOnClick() {
         if (!comprobarTextField(correoTextField)) {
@@ -45,11 +48,17 @@ public class RecuperarController extends AbstractController {
         errorText.setText("Su contraseña es: " + usuario.getContrasenia());
     }
 
+    /**
+     * va a la pantalla registrar
+     */
     @FXML
     void logInToRegistrarOnClick() {
         cambiarPantalla(crearCuentaButton, "registrar", "recuperar");
     }
 
+    /**
+     * vuelve atras
+     */
     @FXML
     void atrasOnClick() {
         cambiarPantalla(atrasButton);

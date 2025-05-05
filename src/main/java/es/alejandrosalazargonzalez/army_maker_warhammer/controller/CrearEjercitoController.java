@@ -7,7 +7,6 @@ import java.util.List;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.controller.abstractas.AbstractController;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.EjercitoEntity;
-import es.alejandrosalazargonzalez.army_maker_warhammer.model.EjercitoServiceModel;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.GeneralEntity;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.UnidadEntity;
 import javafx.fxml.FXML;
@@ -15,7 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
 
@@ -79,6 +77,9 @@ public class CrearEjercitoController extends AbstractController {
         ejercito = new EjercitoEntity();
     }
 
+    /**
+     * elige una faccion jugable
+     */
     @FXML
     void elegirFaccion() {
         ejercito.setFaccion(faccionComboBox.getValue());
@@ -87,6 +88,10 @@ public class CrearEjercitoController extends AbstractController {
         subFaccionComboBox.getItems().addAll(subFacciones);
     }
 
+    /**
+     * elige un ejercito del usuario
+     * @throws SQLException
+     */
     @FXML
     void elegirEjercito() throws SQLException {
         if (ejercitoComboBox.getValue().equals("nuevo")) {
@@ -98,9 +103,13 @@ public class CrearEjercitoController extends AbstractController {
         nombreEjercitoField.setVisible(false);
         ejercito = getEjercitoServiceModel().buscarPorNombre(ejercitoComboBox.getValue());
         nombreEjercitoText.setText(ejercito.getNombre());
+        listaEjercitoList.getItems().clear();
         listaEjercitoList.getItems().add(ejercito.toString());
     }
 
+    /**
+     * se elige una subfaccion
+     */
     @FXML
     void elegirSubFaccion() {
         if (ejercito.getFaccion() == null) {
@@ -109,17 +118,26 @@ public class CrearEjercitoController extends AbstractController {
         ejercito.setSubFaccion(subFaccionComboBox.getValue());
     }
 
+    /**
+     * activa un limite de puntos
+     */
     @FXML
     void activarLimitePuntos() {
         limitePuntosText.setVisible(!limitePuntosText.isVisible());
         limitePuntosField.setVisible(!limitePuntosField.isVisible());
     }
 
+    /**
+     * cambia de pantalla a opciones
+     */
     @FXML
     void atrasOnClick() {
         cambiarPantalla(atrasButton, "opciones", "crearEjercito");
     }
 
+    /**
+     * agrega un lider al ejercito del usuario
+     */
     @FXML
     void aceptarLiderOnClick() {
         if (ejercito.getGeneral() != null) {
@@ -138,6 +156,9 @@ public class CrearEjercitoController extends AbstractController {
                 new GeneralEntity(nombreDelLiderField.getText(), Integer.parseInt(puntosDelLiderField.getText())));
     }
 
+    /**
+     * si todos los datos son valido son correctos lo agrega al ejercito
+     */
     @FXML
     void aceptarUnidadOnClick() {
         if (!comprobarTextField(nombreDeUnidadField)) {
@@ -161,6 +182,10 @@ public class CrearEjercitoController extends AbstractController {
                         Integer.parseInt(puntosDeUnidadField.getText()), tipoDeUnidadField.getText()));
     }
 
+    /**
+     * Guarda el ejercito en la base de datos enlazandolo con el usuario actual
+     * @throws SQLException
+     */
     @FXML
     void guardarEjercitoOnClick() throws SQLException {
         if (ejercito.getEjercito() == null || ejercito.getFaccion() == null 
@@ -190,6 +215,7 @@ public class CrearEjercitoController extends AbstractController {
             errorText.setText("Error de base de datos: " + e.getMessage());
             e.printStackTrace();
         }
+        listaEjercitoList.getItems().clear();
         listaEjercitoList.getItems().add(ejercito.toString());
     }
 }
