@@ -6,15 +6,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="510.0" styleClass="background2" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="510.0" styleClass="background2" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.OpcionesCuentaController">
    <children>
       <Line endX="250.0" layoutX="255.0" layoutY="72.0" startX="-250.0" stroke="WHITE" />
       <Text fill="WHITE" layoutX="28.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opciones de cuenta" />
-      <Button layoutX="405.0" layoutY="822.0" mnemonicParsing="false" styleClass="botones" text="Atras">
+      <Button fx:id="atrasButton" layoutX="405.0" layoutY="822.0" mnemonicParsing="false" onAction="#atrasOnClick" styleClass="botones" text="Atras">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="229.0" layoutY="172.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="eliminarCuentaButton" layoutX="50.0" layoutY="218.0" mnemonicParsing="false" onAction="#elimnarCuentaOnClick" prefHeight="50.0" prefWidth="409.0" styleClass="botones" text="Eliminar Cuenta" AnchorPane.bottomAnchor="632.4" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.799999999999955" AnchorPane.topAnchor="218.0" />
+      <Button fx:id="cambiarUsuarioButton" layoutX="50.0" layoutY="286.0" mnemonicParsing="false" onAction="#cambiarUsuarioOnClick" prefHeight="50.0" prefWidth="409.0" styleClass="botones" text="Cambiar Usuario" AnchorPane.bottomAnchor="565.2" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.799999999999955" AnchorPane.topAnchor="286.0" />
+      <Button fx:id="cambiarNombreButton" layoutX="50.0" layoutY="353.0" mnemonicParsing="false" onAction="#cambiarNombreOnClick" prefHeight="50.0" prefWidth="409.0" styleClass="botones" text="Cambiar Nombre" AnchorPane.bottomAnchor="498.20000000000005" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.799999999999955" AnchorPane.topAnchor="353.0" />
+      <Button fx:id="cambiarContraseniaButton" layoutX="50.0" layoutY="422.0" mnemonicParsing="false" onAction="#cambiarContraseniaOnClick" prefHeight="50.0" prefWidth="409.0" styleClass="botones" text="Cambiar Contraseña" AnchorPane.bottomAnchor="429.2" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.799999999999955" AnchorPane.topAnchor="422.0" />
+      <Button fx:id="cambiarCorreoButton" layoutX="50.0" layoutY="490.0" mnemonicParsing="false" onAction="#cambiarCorreoOnClick" prefHeight="50.0" prefWidth="409.0" styleClass="botones" text="Cambiar Correo" AnchorPane.bottomAnchor="361.20000000000005" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.799999999999955" AnchorPane.topAnchor="490.0" />
    </children>
 </AnchorPane>

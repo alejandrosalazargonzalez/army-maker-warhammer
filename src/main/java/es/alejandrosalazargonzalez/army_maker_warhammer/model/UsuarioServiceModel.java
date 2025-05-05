@@ -151,6 +151,35 @@ public class UsuarioServiceModel extends Conexion {
     }
 
     /**
+     * Actualiza la información de un usuario en la base de datos
+     * 
+     * @param usuario Usuario con la información actualizada
+     * @return true/false
+     * @throws SQLException
+     */
+    public boolean actualizarUsuario(UsuarioEntity usuario) throws SQLException {
+        if (usuario == null) {
+            return false;
+        }
+        String sql = "UPDATE Usuario SET nombreUsuario = ?, email = ?, nombre = ?, contrasenia = ? WHERE nombreUsuario = ?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setString(1, usuario.getUsuario());
+            stmt.setString(2, usuario.getEmail());
+            stmt.setString(3, usuario.getNombre());
+            stmt.setString(4, usuario.getContrasenia());
+            stmt.setString(5, usuario.getUsuario());  // Condición WHERE
+            
+            int filasActualizadas = stmt.executeUpdate();
+            return filasActualizadas > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            cerrar();
+        }
+    }
+
+    /**
      * modifica la base de datos segun el sql insertado
      * 
      * @param sql
