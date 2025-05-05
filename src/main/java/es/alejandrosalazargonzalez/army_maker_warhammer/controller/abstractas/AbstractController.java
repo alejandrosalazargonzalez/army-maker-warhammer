@@ -27,7 +27,7 @@ public abstract class AbstractController {
     private final String ficheroStr = "idioma-";
     private static String idiomaActual = "es";
 
-    private String pantallaAnterior;
+    private static String pantallaAnterior;
 
     static final String PATH_DB = "src/main/resources/es/alejandrosalazargonzalez/army_maker_warhammer/usuarios.db";
 
@@ -37,6 +37,7 @@ public abstract class AbstractController {
     private Properties propertiesIdioma;
 
     private static UsuarioEntity usuarioActual;
+
     /**
      * Constructor
      */

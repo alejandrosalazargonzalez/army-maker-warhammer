@@ -15,6 +15,7 @@ public class OpcionesController extends AbstractController{
     @FXML private Button crearPublicacionButton;
     @FXML private Button opcionesCuentaButton;
     @FXML private Button inicio;
+    @FXML private Button atrasButton;
 
     @FXML
     private void opcionesToCrearEjercitoOnClick(){
@@ -36,4 +37,8 @@ public class OpcionesController extends AbstractController{
         cambiarPantalla(inicio, "app-init", "opciones");
     }
 
+    @FXML
+    private void atrasOnClick(){
+        cambiarPantalla(atrasButton);
+    }
 }

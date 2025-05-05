@@ -4,6 +4,7 @@ package es.alejandrosalazargonzalez.army_maker_warhammer.controller;
 import es.alejandrosalazargonzalez.army_maker_warhammer.controller.abstractas.AbstractController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 
 /**
  * @author: alejandrosalazargonzalez
@@ -15,6 +16,13 @@ public class PostsController extends AbstractController {
     private Button imageProfileButton;
     @FXML
     private Button optionButton;
+    @FXML
+    private Text miUsuarioText;
+
+    @FXML
+    void initialize(){
+        miUsuarioText.setText(getUsuarioActual().getUsuario());
+    }
 
     /**
      * va a la pantalla del perfil
@@ -29,7 +37,7 @@ public class PostsController extends AbstractController {
      */
     @FXML
     public void optionButtonOnClick() {
-        cambiarPantalla(optionButton, "opciones", "perfil");
+        cambiarPantalla(optionButton, "opciones", "posts");
     }
 
 }

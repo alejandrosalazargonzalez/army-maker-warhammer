@@ -1,13 +1,13 @@
 -- Tabla de generales
 CREATE TABLE general (
-    id SERIAL PRIMARY KEY,
+    id integer PRIMARY KEY AUTOINCREMENT,
     nombre VARCHAR(100) NOT NULL,
-    puntos_ejercito INT
+    puntos INT
 );
 
 -- Tabla de ejércitos
 CREATE TABLE ejercito (
-    id SERIAL PRIMARY KEY,
+    id integer PRIMARY KEY AUTOINCREMENT,
     nombre VARCHAR(100) NOT NULL,
     faccion VARCHAR(100),
     sub_faccion VARCHAR(100),
@@ -22,7 +22,7 @@ CREATE TABLE ejercito (
 
 -- Tabla de unidades
 CREATE TABLE unidad (
-    id SERIAL PRIMARY KEY,
+    id integer PRIMARY KEY AUTOINCREMENT,
     nombre VARCHAR(100) NOT NULL,
     puntos INT NOT NULL,
     numero_modelos INT NOT NULL,

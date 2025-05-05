@@ -42,6 +42,109 @@ public class EjercitoServiceModel extends Conexion {
         }
     }
 
+    /**
+     * Actualiza un ejército existente en la base de datos
+     * 
+     * @param ejercito el ejército con la información actualizada
+     * @return true/false
+     * @throws SQLException
+     */
+    public boolean actualizarEjercito(EjercitoEntity ejercito) throws SQLException {
+        boolean actualizado = false;
+        
+        try {
+            actualizarGeneral(ejercito.getGeneral());
+            String sqlEjercito = "UPDATE ejercito SET nombre=?, faccion=?, sub_faccion=?, puntos=? WHERE nombre=?";
+            try (PreparedStatement stmt = getConnection().prepareStatement(sqlEjercito)) {
+                stmt.setString(1, ejercito.getNombre());
+                stmt.setString(2, ejercito.getFaccion());
+                stmt.setString(3, ejercito.getSubFaccion());
+                stmt.setInt(4, ejercito.getPuntos());
+                stmt.setString(5, ejercito.getNombre());
+                
+                actualizado = stmt.executeUpdate() > 0;
+                
+                if (actualizado) {
+                    actualizarUnidades(ejercito);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return actualizado;
+    }
+
+    /**
+     * Actualiza la información de un general en la base de datos
+     * 
+     * @param general el general con la información actualizada
+     * @throws SQLException si hay un error en la base de datos
+     */
+    private void actualizarGeneral(GeneralEntity general) throws SQLException {
+        String sql = "UPDATE general SET puntos=? WHERE nombre=?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, general.getPuntos());
+            stmt.setString(2, general.getNombre());
+            stmt.executeUpdate();
+        }
+    }
+
+    /**
+     * Actualiza las unidades de un ejército
+     * 
+     * @param ejercito el ejército con las unidades actualizadas
+     * @throws SQLException si hay un error en la base de datos
+     */
+    private void actualizarUnidades(EjercitoEntity ejercito) throws SQLException {
+        int ejercitoId = obtenerEjercitoId(ejercito.getNombre());
+        
+        eliminarUnidades(ejercitoId);
+        
+        for (UnidadEntity unidad : ejercito.getEjercito()) {
+            insertarUnidad(unidad, ejercitoId);
+        }
+    }
+
+    /**
+     * Obtiene el ID de un ejército por su nombre
+     * 
+     * @param nombreEjercito el nombre del ejército
+     * @return el ID del ejército
+     * @throws SQLException si hay un error en la base de datos
+     */
+    private int obtenerEjercitoId(String nombreEjercito) throws SQLException {
+        String sql = "SELECT id FROM ejercito WHERE nombre = ?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setString(1, nombreEjercito);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("id");
+            }
+        }
+        throw new SQLException("No se encontró el ejército con nombre: " + nombreEjercito);
+    }
+
+    /**
+     * Elimina todas las unidades de un ejército
+     * 
+     * @param ejercitoId el ID del ejército
+     * @throws SQLException si hay un error en la base de datos
+     */
+    private void eliminarUnidades(int ejercitoId) throws SQLException {
+        String sql = "DELETE FROM unidad WHERE ejercito_id = ?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, ejercitoId);
+            stmt.executeUpdate();
+        }
+    }
+
+    /**
+     * inserta un general al ejercito
+     * @param general
+     * @return
+     * @throws SQLException
+     */
     private int insertarGeneral(GeneralEntity general) throws SQLException {
         String sql = "INSERT INTO general (nombre, puntos) VALUES (?,?)";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -57,6 +160,12 @@ public class EjercitoServiceModel extends Conexion {
         throw new SQLException("Error al insertar general");
     }
 
+    /**
+     * inserta una unidad al ejercito
+     * @param unidad a insertar
+     * @param ejercitoId
+     * @throws SQLException
+     */
     private void insertarUnidad(UnidadEntity unidad, int ejercitoId) throws SQLException {
         String sql = "INSERT INTO unidad (nombre, puntos, numero_modelos, tipo, ejercito_id) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
@@ -69,6 +178,11 @@ public class EjercitoServiceModel extends Conexion {
         }
     }
 
+    /**
+     * saca todos los ejercitos
+     * @return ArrayList<EjercitoEntity>
+     * @throws SQLException
+     */
     public ArrayList<EjercitoEntity> listarEjercitos() throws SQLException {
         ArrayList<EjercitoEntity> ejercitos = new ArrayList<>();
         String sql = "SELECT * FROM ejercito";
@@ -94,6 +208,12 @@ public class EjercitoServiceModel extends Conexion {
         return ejercitos;
     }
 
+    /**
+     * buca un ejercito por su nombre
+     * @param nombreBuscado
+     * @return EjercitoEntity
+     * @throws SQLException
+     */
     public EjercitoEntity buscarPorNombre(String nombreBuscado) throws SQLException {
         String sql = "SELECT * FROM ejercito WHERE nombre = ?";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
@@ -116,6 +236,11 @@ public class EjercitoServiceModel extends Conexion {
         return null;
     }
 
+    /**
+     * elimina un ejercito
+     * @param ejercitoId
+     * @throws SQLException
+     */
     public void eliminarEjercito(int ejercitoId) throws SQLException {
         String sql = "DELETE FROM ejercito WHERE id = ?";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
@@ -124,6 +249,12 @@ public class EjercitoServiceModel extends Conexion {
         }
     }
 
+    /**
+     * saca el general por su id
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     private GeneralEntity obtenerGeneralPorId(int id) throws SQLException {
         String sql = "SELECT * FROM general WHERE id = ?";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
@@ -138,6 +269,12 @@ public class EjercitoServiceModel extends Conexion {
         return null;
     }
 
+    /**
+     * lee todos los ejercitos con una id
+     * @param ejercitoId
+     * @return ArrayList<UnidadEntity>
+     * @throws SQLException
+     */
     private ArrayList<UnidadEntity> obtenerUnidadesPorEjercitoId(int ejercitoId) throws SQLException {
         ArrayList<UnidadEntity> unidades = new ArrayList<>();
         String sql = "SELECT * FROM unidad WHERE ejercito_id = ?";
@@ -157,4 +294,45 @@ public class EjercitoServiceModel extends Conexion {
         return unidades;
     }
 
+    /**
+     * Obtiene todos los ejércitos de un usuario específico
+     * 
+     * @param usuario el usuario del que queremos obtener los ejércitos
+     * @return ArrayList<EjercitoEntity> lista de ejércitos del usuario
+     * @throws SQLException si hay un error en la base de datos
+     */
+    public ArrayList<EjercitoEntity> obtenerEjercitosDeUsuario(UsuarioEntity usuario) throws SQLException {
+        if (usuario == null) {
+            return new ArrayList<>();
+        }
+    
+        ArrayList<EjercitoEntity> ejercitos = new ArrayList<>();
+        String sql = "SELECT * FROM ejercito WHERE usuario = ?";
+    
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setString(1, usuario.getUsuario());
+            ResultSet resultado = stmt.executeQuery();
+    
+            while (resultado.next()) {
+                int id = resultado.getInt("id");
+                String nombre = resultado.getString("nombre");
+                String faccion = resultado.getString("faccion");
+                String subFaccion = resultado.getString("sub_faccion");
+                int puntos = resultado.getInt("puntos");
+                int generalId = resultado.getInt("general_id");
+                
+                GeneralEntity general = obtenerGeneralPorId(generalId);
+                ArrayList<UnidadEntity> unidades = obtenerUnidadesPorEjercitoId(id);
+    
+                EjercitoEntity ejercito = new EjercitoEntity(nombre, faccion, subFaccion, general, unidades, puntos);
+                ejercitos.add(ejercito);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            cerrar();
+        }
+    
+        return ejercitos;
+    }
 }

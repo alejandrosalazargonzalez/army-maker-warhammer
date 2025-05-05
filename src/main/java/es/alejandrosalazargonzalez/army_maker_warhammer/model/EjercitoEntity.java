@@ -1,6 +1,5 @@
 package es.alejandrosalazargonzalez.army_maker_warhammer.model;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -23,6 +22,7 @@ public class EjercitoEntity extends AbstractController{
      * constructor vacio
      */
     public EjercitoEntity(){
+        ejercito = new ArrayList<>();
     }
 
         /**
@@ -54,6 +54,7 @@ public class EjercitoEntity extends AbstractController{
      * @param puntos del ejercito
      */
     public EjercitoEntity(String nombre, String faccion, String subFaccion, GeneralEntity general, ArrayList<UnidadEntity> ejercito, int puntos){
+        this.usuario=getUsuarioActual();
         this.nombre = nombre;
         this.faccion=faccion;
         this.subFaccion=subFaccion;
@@ -107,6 +108,18 @@ public class EjercitoEntity extends AbstractController{
         return this.puntos;
     }
 
+    /**
+     * agrega una unidad al ejercito
+     * @param unidad
+     */
+    public void addUnidad(UnidadEntity unidad){
+        if (unidad == null) {
+            return;
+        }
+        puntos += unidad.getPuntos();
+        ejercito.add(unidad);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -115,23 +128,21 @@ public class EjercitoEntity extends AbstractController{
             return false;
         }
         EjercitoEntity ejercitoEntity = (EjercitoEntity) o;
-        return Objects.equals(nombre, ejercitoEntity.nombre) && Objects.equals(faccion, ejercitoEntity.faccion) && Objects.equals(subFaccion, ejercitoEntity.subFaccion) && Objects.equals(general, ejercitoEntity.general) && Objects.equals(ejercito, ejercitoEntity.ejercito) && puntos == ejercitoEntity.puntos;
+        return Objects.equals(nombre, ejercitoEntity.nombre);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, faccion, subFaccion, general, ejercito, puntos);
+        return Objects.hash(nombre);
     }
 
     @Override
     public String toString() {
-        return "{" +
-            " nombre='" + getNombre() + "'" +
-            ", faccion='" + getFaccion() + "'" +
-            ", subFaccion='" + getSubFaccion() + "'" +
-            ", general='" + getGeneral() + "'" +
-            ", ejercito='" + getEjercito() + "'" +
-            ", puntos='" + getPuntos() + "'" +
-            "}";
+        return " nombre='" + getNombre() + "'\n" +
+            ", faccion='" + getFaccion() + "'\n" +
+            ", subFaccion='" + getSubFaccion() + "'\n" +
+            ", general='" + getGeneral() + "'\n" +
+            ", ejercito='" + getEjercito().toString() + "'\n" +
+            ", puntos='" + getPuntos() + "'\n";
     }
 }

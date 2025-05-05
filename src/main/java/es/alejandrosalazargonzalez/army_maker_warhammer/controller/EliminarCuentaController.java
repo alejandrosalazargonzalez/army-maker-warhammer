@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class eliminarCuentaController extends AbstractController {
+public class EliminarCuentaController extends AbstractController {
     
     @FXML TextField introduzcaContraseniaField;
     @FXML TextField escribaAceptarField;

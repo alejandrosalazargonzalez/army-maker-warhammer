@@ -43,5 +43,6 @@
       <Text fx:id="nombreEjercitoText" fill="WHITE" layoutX="238.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <TextField fx:id="nombreEjercitoField" layoutX="180.0" layoutY="220.0" promptText="Elija un nombre para su ejercito" visible="false" />
       <Button fx:id="guardarEjercitoButton" layoutX="394.0" layoutY="842.0" mnemonicParsing="false" onAction="#guardarEjercitoOnClick" styleClass="botones" text="Guardar Ejercito" />
+      <Text fx:id="errorText" fill="WHITE" layoutX="238.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>

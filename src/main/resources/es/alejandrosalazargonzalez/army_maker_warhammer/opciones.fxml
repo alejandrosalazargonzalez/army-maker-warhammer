@@ -9,7 +9,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="510.0" styleClass="background2" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.alejandrosalazargonzalez.army_maker_warhammer.controller.OpcionesController">
    <children>
       <Text fx:id="opcionesText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Opciones" wrappingWidth="490.54029083251953">
@@ -22,6 +21,11 @@
             <Insets bottom="15.0" left="5.0" right="5.0" top="5.0" />
          </VBox.margin>
       </Line>
+      <Button fx:id="atrasButton" mnemonicParsing="false" onAction="#atrasOnClick" styleClass="botones" text="Atras">
+         <VBox.margin>
+            <Insets right="400.0" />
+         </VBox.margin>
+      </Button>
       <Button fx:id="crearEjercitoButton" mnemonicParsing="false" onAction="#opcionesToCrearEjercitoOnClick" prefHeight="45.0" prefWidth="250.0" styleClass="botones" text="Crear Ejercito">
          <VBox.margin>
             <Insets top="100.0" />
