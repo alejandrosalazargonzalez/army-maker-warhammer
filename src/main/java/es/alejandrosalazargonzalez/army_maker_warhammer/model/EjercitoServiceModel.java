@@ -5,11 +5,14 @@ import es.alejandrosalazargonzalez.army_maker_warhammer.model.abstractas.Conexio
 
 import java.sql.*;
 import java.util.ArrayList;
+import jakarta.persistence.*;
 
 /**
  *   @author: alejandrosalazargonzalez
  *   @version: 1.0.0
  */
+@Entity
+@Table(name = "ejercito")
 public class EjercitoServiceModel extends Conexion {
 
     public EjercitoServiceModel(String pathDb) throws SQLException {
