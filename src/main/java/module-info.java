@@ -7,7 +7,8 @@ module es.alejandrosalazargonzalez.army_maker_warhammer{
     requires transitive java.sql;
     requires spring.context;
     requires spring.data.jpa;
-
+    requires jakarta.persistence;
+    
     opens es.alejandrosalazargonzalez.army_maker_warhammer to javafx.fxml;
     exports es.alejandrosalazargonzalez.army_maker_warhammer;
     exports es.alejandrosalazargonzalez.army_maker_warhammer.config;

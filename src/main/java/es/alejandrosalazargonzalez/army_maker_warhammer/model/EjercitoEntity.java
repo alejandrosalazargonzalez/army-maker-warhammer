@@ -2,14 +2,20 @@ package es.alejandrosalazargonzalez.army_maker_warhammer.model;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.io.Serializable;
+
+import jakarta.persistence.*;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.controller.abstractas.AbstractController;
 
 /**
  *   @author: alejandrosalazargonzalez
+ *     Entidad que mapea la tabla ejercito en ejercitoEntity
  *   @version: 1.0.0
  */
-public class EjercitoEntity extends AbstractController{
+@Entity
+@Table(name = "ejercito")
+public class EjercitoEntity extends AbstractController implements Serializable{
     private UsuarioEntity usuario;
     private String nombre;
     private String faccion;
@@ -26,7 +32,7 @@ public class EjercitoEntity extends AbstractController{
     }
 
     /**
-     * Constructor completo
+     * Constructor completo para crear
      * @param nombre del ejercito
      * @param faccion del ejercito
      * @param subFaccion del ejercito
@@ -46,7 +52,7 @@ public class EjercitoEntity extends AbstractController{
     }
 
     /**
-     * Constructor completo
+     * Constructor completo para mostrar
      * @param nombre del ejercito
      * @param faccion del ejercito
      * @param subFaccion del ejercito

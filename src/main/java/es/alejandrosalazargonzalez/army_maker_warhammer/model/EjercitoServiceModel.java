@@ -2,51 +2,42 @@ package es.alejandrosalazargonzalez.army_maker_warhammer.model;
 
 import es.alejandrosalazargonzalez.army_maker_warhammer.controller.abstractas.AbstractController;
 import es.alejandrosalazargonzalez.army_maker_warhammer.model.abstractas.Conexion;
+import es.alejandrosalazargonzalez.army_maker_warhammer.model.abstractas.EjercitoRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import jakarta.persistence.*;
-
+import org.springframework.stereotype.Component;
 /**
  *   @author: alejandrosalazargonzalez
  *   @version: 1.0.0
  */
-@Entity
-@Table(name = "ejercito")
-public class EjercitoServiceModel extends Conexion {
+@Component
+public class EjercitoServiceModel extends Conexion  {
+    private EjercitoRepository ejercitoRepository;
 
     public EjercitoServiceModel(String pathDb) throws SQLException {
         super(pathDb);
     }
 
+    //@AutoWired
+    public void setEjercitoRepository(EjercitoRepository ejercitoRepository){
+        this.ejercitoRepository=ejercitoRepository;
+    }
+
+
     /**
      * agrega un ejercito a bbdd
      * 
      * @param ejercito a insertar
-     * @throws SQLException
+     * @return true/false
      */
-    public void insertarEjercito(EjercitoEntity ejercito) throws SQLException {
-        int generalId = insertarGeneral(ejercito.getGeneral());
-        String usuario = AbstractController.getUsuarioActual().getUsuario();
-        String sqlEjercito = "INSERT INTO ejercito (nombre, faccion, sub_faccion, general_id, usuario, puntos) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement stmt = getConnection().prepareStatement(sqlEjercito, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setString(1, ejercito.getNombre());
-            stmt.setString(2, ejercito.getFaccion());
-            stmt.setString(3, ejercito.getSubFaccion());
-            stmt.setInt(4, generalId);
-            stmt.setString(5, usuario);
-            stmt.setInt(6, ejercito.getPuntos());
-            stmt.executeUpdate();
-
-            ResultSet rs = stmt.getGeneratedKeys();
-            if (rs.next()) {
-                int ejercitoId = rs.getInt(1);
-
-                for (UnidadEntity unidad : ejercito.getEjercito()) {
-                    insertarUnidad(unidad, ejercitoId);
-                }
-            }
+    public boolean insertarEjercito(EjercitoEntity ejercito) {
+        if (ejercito == null) {
+            return false;
         }
+        ejercitoRepository.save(ejercito);
+        return true;
     }
 
     /**
